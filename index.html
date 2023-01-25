@@ -1,39 +1,33 @@
-<!DOCTYPE html><!-- Declaración del tipo de documento a mostrar, en este caso HTML5 -->
-<html lang="es"><!-- Aquí empieza el documento html. A través del atributo lang le indicamos que el idioma del mismo es el español -->
-<head><!-- CABECERA. El head delimita la cabecera e incluye la colección de metadatos sobre el documento y los enlaces a scripts y hojas de estilo. -->
-	<title>Saga Bridgerton</title><!-- Representa el título del documento que se mostrará en la barra superior del navegador o en las pestañas de la página. -->
-	<meta charset="utf-8"><!-- Se especifica la codificación de caracteres del documento, el conjunto de caracteres que el documento puede usar. UTF-8 es un conjunto de caracteres universal que incluye prácticamente todos los caracteres de cualquier idioma (la ñ, acentos, diéresis...). -->
-	<meta name="viewport" content="width=device-width,initial-scale=1.0"><!-- Para que la web sea responsive se especifica que el ancho del contenido se adaptará al ancho de la pantalla del dispositivo en que se visualice y el tamaño inicial de los elementos será del 100%, de forma que el usuario pueda leerlo fácilmente sin necesidad de hacer zoom-->
-	<meta name="author" content="Rocío Fernández"><!-- Contiene el nombre de la autora de la página -->
-	<meta name="title" content="Saga Bridgerton"><!-- Contiene el título que se mostrará en los buscadores -->
-    <meta name="description" content="Web acerca de la existosa saga de novelas románticas de época 'Los Bridgerton', de la escritora Julia Quinn."><!-- Contiene la descripción de la página que se mostrará en los buscadores -->
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><!-- Enlace que prepara la conexión a Google Fonts -->
-	<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital@1&family=Roboto+Slab:wght@300;400&display=swap" rel="stylesheet"><!-- Enlace a las tipografías de Google Fonts que se van a utilzar en la web -->
-	<link rel="shortcut icon" href="favicon.png"><!-- Enlace al favicon, que es el icono que se mostrará junto al título de la página en la pestaña del navegador -->
-	<link rel="stylesheet" href="css/estilo.css"><!-- Enlace a una hoja de estilos externa y su ubicación en la carpeta del proyecto-->
+<!DOCTYPE html>
+<html lang="es">
+<head><!-- CABECERA -->
+	<title>Saga Bridgerton</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<meta name="author" content="Rocío Fernández">
+	<meta name="title" content="Saga Bridgerton">
+    <meta name="description" content="Web acerca de la existosa saga de novelas románticas de época 'Los Bridgerton', de la escritora Julia Quinn.">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital@1&family=Roboto+Slab:wght@300;400&display=swap" rel="stylesheet">
+	<link rel="shortcut icon" href="favicon.png">
+	<link rel="stylesheet" href="css/estilo.css">
 </head><!-- FIN CABECERA -->
 
-<body><!-- El body o cuerpo del documento contiene todo el contenido de la web que se mostrará en el navegador -->
-	<!-- Esta web es una landing page que contiene un pequeño menú de navegación y un acordeón con 10 secciones: la sección de de introducción(Saga Bridgerton) y la sección sobre la autora de la saga (ambas dentro de la sección de inicio) y las 8 secciones de los libros, cada una correspondiente a uno distinto de la colección. -->
+<body>
 	<nav><!-- MENÚ DE NAVEGACIÓN -->
-		<ul><!-- El menú consta una lista sin orden con dos enlaces -->
-			<li><a id="saga" href="#">Saga Bridgerton</a></li><!-- Un enlace a la sección introductoria a la web, que es la que aparece ya desplegada. --> 
+		<ul>
+			<li><a id="saga" href="#">Saga Bridgerton</a></li><!-- Un enlace a la sección introductoria a la web --> 
 			<li><a id="autora" href="#">autora</a></li><!-- Un enlace a la sección de la autora -->
-			<!-- Ambos enlaces tienen un atributo id único que servirá para otorgar a cada uno su función respectiva con javascript y el atributo href con el valor # que indica que ese enlace no lleva a ninguna parte. De esta forma se controlará con javascript que al hacer click sobre cada uno de ellos se despliegue la sección que le corresponda en lugar de navegar por la página hasta la sección -->
 		</ul><!-- fin de la lista -->
 	</nav><!-- FIN MENÚ DE NAVEGACIÓN -->
 
-	<div class="libreria"><!-- CONTENEDOR CON TODAS LAS SECCIONES DE LA PÁGINA. Tiene la clase libreria que sirve para darle un estilo de acordeón en css. -->
-	<!-- Dentro de este contenedor principal el contenido está estructurado de la siguiente forma: -->
-
-		<section id="inicio" class="lomo desplegado"><!-- SECCIÓN DE INICIO. Es la que aparece desplegada al entrar en la página (tiene la clase desplegado). Contiene las secciones de Saga Bridgerton (que es la que está visible) y la autora (que está oculta). 
-		Sólo una sección puede estar desplegada, el resto aparecen colapsadas (tienen las clase collapsed). Al hacer click sobre el lomo de cada libro o sobre los enlaces del menú, se desplegará la sección que le corresponda(se le pondrá con javascript la clase desplegado) y se colapsarán las demás.
-		Con la clase lomo se da estilo en css a cada sección del acordeón.  -->
-			<section class="seccion activa"><!-- SECCIÓN DE LA SAGA BRIDGERTON. Con las clase seccion y activa le damos estilo en css y la hacemos visible -->
-		    	<div class="libro"><!-- CONTENEDOR CON LA CLASE LIBRO. Todas las secciones encierran su contenido en un div igual a este. La clase libro es la encargada de dar estilo de cada sección cuando está desplegada. Dentro de este div en concreto: -->
-		    		<h1 id="titulo">Saga Bridgerton</h1><!-- Encabezado de primer orden con el título de la sección, que es también el de la página. Tiene un id con el valor de titulo para controlar el estilo de dicho título en el css. -->
-		    		<!-- A continuación un párrafo con todo el texto de la sección. Se enfatiza el texto contenido entre las etiquetas em (en cursiva) y strong (en negrita). Con las etiquetas br se le añaden al párrafo saltos de línea. -->
-		    		<p>Esta es una página acerca de la saga de novelas Los Bridgerton, que ha aumentado su popularidad tras el estreno de la serie con el mismo nombre en <em><a href="https://www.netflix.com/us-es/title/80232398" target="blank">Netflix</a></em><!-- Un enlace externo con la URL absoluta a la web de la serie de Netflix basada en la saga. El atributo target con el valor blank indica que la URL debe abrirse en una nueva pestaña. --> durante la Navidad de 2020. La saga consta de ocho novelas escritas por <strong>Julia Quinn</strong>, entre 2000 y 2006, que retrata con un estilo divertido e ingenioso a la clase alta de la Inglaterra georgiana.<br><br>
+	<div class="libreria"><!-- CONTENEDOR CON TODAS LAS SECCIONES DE LA PÁGINA -->
+	
+		<section id="inicio" class="lomo desplegado"><!-- SECCIÓN DE INICIO -->
+			<section class="seccion activa"><!-- SECCIÓN DE LA SAGA BRIDGERTON -->
+		    	<div class="libro"><!-- Contenedor -->
+		    		<h1 id="titulo">Saga Bridgerton</h1>
+		    		<p>Esta es una página acerca de la saga de novelas Los Bridgerton, que ha aumentado su popularidad tras el estreno de la serie con el mismo nombre en <em><a href="https://www.netflix.com/us-es/title/80232398" target="blank">Netflix</a></em> durante la Navidad de 2020. La saga consta de ocho novelas escritas por <strong>Julia Quinn</strong>, entre 2000 y 2006, que retrata con un estilo divertido e ingenioso a la clase alta de la Inglaterra georgiana.<br><br>
 
 					En la colección se narran las andanzas de la familia Bridgerton, la viuda del vizconde Lord Edmund Bridgerton y sus ocho hijos, que poseen fortuna y títulos nobiliarios, todo lo necesario para sobrevivir en la alta sociedad londinense durante el periodo de la Regencia (1813-1827).<br><br>
 
@@ -43,15 +37,14 @@
 
 					Si quieres conocer un poco más las historias de los hermanos solo tienes que hacer <strong>click sobre el título de cada libro</strong> y se desplegará una sección con la portada y un resumen de la trama que le corresponda.<br><br>
 					</p><!-- Fin del párrafo -->
-		    	</div><!-- Fin del CONTENEDOR CON LA CLASE LIBRO -->
+		    	</div><!-- Fin contenedor -->
 			</section><!-- FIN SECCIÓN DE LA SAGA BRIDGERTON -->
-			<section class="seccion"><!-- SECCIÓN AUTORA. Se encuentra oculta. Se verá al hacer click en el enlace de autora en el menú (porque se le pondrá a está sección la clase activa con javascript) -->
-		    	<div class="libro"><!-- CONTENEDOR CON LA CLASE LIBRO. Todas las secciones encierran su contenido en un div con la clase libro. Dentro de él: -->
-		    		<h2 id="nombreAutora">Julia Quinn</h2><!-- Encabezado de segundo orden con el título de la sección, que es el nombre de la autora. Con el id se otorga a este el estilo en el css. -->
-		    		<div id="imagenAutora"><img src="img/julia-quinn.gif" alt="Imagen de la escritora Julia Quinn"></div><!-- DIV CON IMAGEN DE LA AUTORA. Con el id se controla el estilo en css. Con el atributo src se indica la ruta a la imagen y con el atributo alt el texto alternativo a dicha imagen. -->
+			<section class="seccion"><!-- SECCIÓN AUTORA -->
+		    	<div class="libro"><!-- Contenedor -->
+		    		<h2 id="nombreAutora">Julia Quinn</h2>
+		    		<div id="imagenAutora"><img src="img/julia-quinn.gif" alt="Imagen de la escritora Julia Quinn"></div>
 
-		    		<!-- A continuación un párrafo con el texto, que contiene como en la sección anterior etiquetas de énfasis(em y strong) y saltos de línea(br). -->
-		    		<p>Tras el seudónimo de <a href="https://juliaquinn.com/" target="blank">Julia Quinn</a><!-- Un enlace externo que lleva a la web de la autora en otra pestaña --> se encuentra la escritora estadounidense Julia Pottinguer (1970), Cotler de soltera, casada con Paul Pottinguer y madre de dos hijos, famosa por su saga <strong><em>Los Bridgerton</em></strong>, expuesta en esta web.<br><br>
+		    		<p>Tras el seudónimo de <a href="https://juliaquinn.com/" target="blank">Julia Quinn</a> se encuentra la escritora estadounidense Julia Pottinguer (1970), Cotler de soltera, casada con Paul Pottinguer y madre de dos hijos, famosa por su saga <strong><em>Los Bridgerton</em></strong>, expuesta en esta web.<br><br>
 
 		    		Julia nació y se crió en New York, en el seno de una familia judía, y tras el divorcio de sus padres se mudó a California. Amante de la lectura desde pequeña, tuvo alguna disputa con su padre debido a las lecturas que seleccionaba y de ello surgió su primera novela <em>Sweet dreams</em>, que desafortunadamente sería rechazada por las editoriales.<br><br>
 
@@ -62,41 +55,41 @@
 					Sus libros destacan por sus agudos e ingeniosos diálogos, que reflejan su gran sentido del humor. Los personajes son el centro de sus obras, cada trama se desarrolla a partir del protagonista, como podemos apreciar claramente en las novelas de la serie <em>Los Bridgerton</em>, su obra <em>‘best-seller’</em> traducida a 25 idiomas por la cual ha recibido numerosos premios RITA, los grandes reconocimientos del género romántico literario.<br><br>
 
 					Su bibliografía comprende además otras series como: <em>Trilogía Espléndida, Hermanas Lyndon, Agentes de la corona, Serie Bevelstoke, Cuarteto de Smythe-Smith, Series Rokesby, Lady Whistledown y La dama más…</em><br><br></p><!-- Fin del párrafo -->
-		    	</div><!-- Fin del CONTENEDOR CON LA CLASE LIBRO -->
+		    	</div><!-- Fin contenedor -->
 			</section><!-- FIN SECCIÓN AUTORA -->		    
 		</section><!-- FIN SECCIÓN DE INICIO -->
 
 
 											<!-- ============ SECCIONES LIBROS ============ -->
 
-		<!-- A continuación las secciones correspondientes a los libros dispuestas con un diseño de librería en el acordeón. Todas tienen la estructura que sigue: -->
-		<section class="lomo collapsed"><!-- SECCIÓN LIBRO 1. Colapsada al entrar en la página. -->
-		    <h3><a href="#">El duque y yo</a></h3><!-- Encabezado de 3º orden que contiene un enlace con el título del libro 1. Imita al titulo que aparece en el lomo del libro original. El atributo href con el valor # indica que ese enlace no lleva a ninguna parte. De esta forma se controlará con javascript que al hacer click sobre el título de cada libro se despliegue la sección que le corresponda en lugar de navegar por la página hasta la sección -->
-		    <div class="libro" id="uno"><!-- CONTENEDOR CON LA CLASE LIBRO Y UN ID=UNO. Con el id se le dará en el css su color de fondo a cada libro. Dentro de él: -->
-		    	<div class="portada"><img src="img/portada01.jpg" alt="Portada de la novela El duque y yo"></div><!-- DIV CON IMAGEN PORTADA. La clase portada del div da estilo a todas las imágenes de portada en css. Para la sección de cada libro cambiará el nombre del archivo en la ruta del atributo src y el valor del atributo alt, que indicará de qué libro es la portada.  -->
-		    	<div class="texto"><!-- CONTENEDOR TEXTO. Div con la clase texto que contiene: -->
-		    		<p class="intro">Todos parecían divertirse en aquel baile que reunía a lo más selecto de la sociedad londinense.</p><!-- Párrafo introductorio. Con la clase intro para darle estilo en css. -->
-		    		<img class="separador" src="img/divider.gif" alt="separador"><!-- IMAGEN SEPARADOR (la misma en todos los libros) con sus atributos src y alt. -->
+		<!-- A continuación las secciones correspondientes a los libros dispuestas con un diseño de librería. -->
+		<section class="lomo collapsed"><!-- SECCIÓN LIBRO 1 -->
+		    <h3><a href="#">El duque y yo</a></h3><!-- TÍTULO LIBRO 1 -->
+		    <div class="libro" id="uno"><!-- CONTENEDOR -->
+		    	<div class="portada"><img src="img/portada01.jpg" alt="Portada de la novela El duque y yo"></div><!-- DIV CON IMAGEN PORTADA  -->
+		    	<div class="texto"><!-- CONTENEDOR TEXTO -->
+		    		<p class="intro">Todos parecían divertirse en aquel baile que reunía a lo más selecto de la sociedad londinense.</p><!-- Párrafo introductorio -->
+		    		<img class="separador" src="img/divider.gif" alt="separador"><!-- imagen separador -->
 
-		    		<!-- A continuación un párrafo con un resumen del argumento del libro en cuestión. Con la clase argumento para darle estilo en css -->
-					<p class="argumento">Todos, excepto ellos dos. Daphne, una hermosa joven agobiada por su madre, y Simon, el huraño nuevo duque de Hastings, tenían el mismo problema: la continua presión para que encontraran pareja. Al conocerse, se les ocurrió el plan perfecto: fingir un compromiso que los liberara de más agobios. Pero no sería sencillo, ya que el hermano de Daphne, amigo de Simon, no es fácil de engañar, ni tampoco lo son las avezadas damas de la alta sociedad. Aunque lo que complicará de verdad las cosas será la aparición de un elemento que no estaba previsto en este juego a dos bandas: el amor. <br><br><!-- saltos de línea -->
+		    		<!-- A continuación un párrafo con un resumen del argumento del libro en cuestión -->
+					<p class="argumento">Todos, excepto ellos dos. Daphne, una hermosa joven agobiada por su madre, y Simon, el huraño nuevo duque de Hastings, tenían el mismo problema: la continua presión para que encontraran pareja. Al conocerse, se les ocurrió el plan perfecto: fingir un compromiso que los liberara de más agobios. Pero no sería sencillo, ya que el hermano de Daphne, amigo de Simon, no es fácil de engañar, ni tampoco lo son las avezadas damas de la alta sociedad. Aunque lo que complicará de verdad las cosas será la aparición de un elemento que no estaba previsto en este juego a dos bandas: el amor. <br><br>
 
 					Desde que fue presentada en sociedad, Daphne no tiene un momento de respiro. La culpa es de su madre, a la que adora, pero que está obsesionada con encontrarle un marido cuanto antes. Lo peor del caso es que los hombres deseables no están interesados, y los que sí lo están son unos incansables pesados de los que tiene que librarse... incluso a golpes. Por eso acepta encantada la idea del duque de Hastings de fingir un noviazgo para ahuyentar a todos los pretendientes. Aunque quizá también tenga algo que ver el hecho de que el joven duque le resultar cada vez más seductor. <br><br><!-- saltos de línea -->
 
 					Marcado por una infancia llena de soledad y resentimiento, Simon Basset, el nuevo duque de Hastings, no quiere saber nada de la vida social de Londres ni, desde luego, de los intentos de las elegantes damas de "cazarlo" como marido para sus hijas. Cuando conoce a Daphne, cree haber encontrado el plan perfecto: un compromiso ficticio que mantenga alejadas a las pretendientes que lo agobian. Y cuando la atracción fingida comienza a convertirse en algo demasiado real, Simon deberá enfrentarse a los fantasmas del pasado que le impiden disfrutar la felicidad que el destino pone al alcance de su mano.</p><!-- Fin párrafo argumento -->
 
 				</div><!-- FIN CONTENEDOR TEXTO -->
-				<div><img class="fin" src="img/fin01.gif" alt="Contraportada de la novela El duque y yo"></div><!-- DIV CON IMAGEN CONTRAPORTADA. Para la sección de cada libro cambiará el nombre del archivo en la ruta del atributo src y el valor del atributo alt, que indicará de qué libro es la imagen de contraportada. Con la clase fin se da estilo a todas las imágenes de contraportada en css. -->
+				<div><img class="fin" src="img/fin01.gif" alt="Contraportada de la novela El duque y yo"></div><!-- DIV CON IMAGEN CONTRAPORTADA -->
 		    </div><!-- FIN CONTENEDOR CLASE LIBRO CON ID=UNO -->
 	  	</section><!-- FIN SECCIÓN LIBRO 1 -->
 
 	  	<section class="lomo collapsed"><!-- SECCION LIBRO 2 -->
-	    	<h3><a href="#">El vizconde que me amó</a></h3><!-- Encabezado de 3º orden que contiene un enlace con el título del libro 2 -->
+	    	<h3><a href="#">El vizconde que me amó</a></h3><!-- TÍTULO LIBRO 2 -->
 	    	<div class="libro" id="dos"><!-- CONTENEDOR CLASE LIBRO CON ID=DOS -->
 	    		<div class="portada"><img src="img/portada02.jpg" alt="Portada de la novela El vizconde que me amó"></div><!-- DIV CON IMAGEN PORTADA LIBRO 2 -->
 	      		<div class="texto"><!-- CONTENEDOR TEXTO -->
 		      		<p class="intro">Los cotilleos de lady Whistledown no fallan nunca.</p><!-- Párrafo introductorio libro 2 -->
-			    	<img class="separador" src="img/divider.gif" alt="separador"><!-- IMAGEN SEPARADOR -->
+			    	<img class="separador" src="img/divider.gif" alt="separador"><!-- imagen separador -->
 
 					<!-- Párrafo argumento libro 2 -->
 					<p class="argumento">Una vez más, Anthony Bridgerton es el soltero más codiciado de la temporada en la alta sociedad victoriana. Pero este año, el atractivo  vizconde, amante de la diversión y enemigo del compromiso, sorprende a todos y decide buscar esposa y sentar cabeza. La joya más preciada, la joven y hermosa Edwina Sheffield, es su elección natural. Pero para conseguirla ha de obtener antes la aprobación de la hermana mayor de la muchacha, Kate. Anthony comprobará que convencer  a esa mujer arrogante y decidida de que ha dejado de ser un vividor no es tarea fácil. Como tampoco lo es quitársela de la cabeza cuando llega la noche. <br><br>
@@ -111,12 +104,12 @@
 	  	</section><!-- FIN SECCION LIBRO 2 -->
 
 	  	<section class="lomo collapsed"><!-- SECCION LIBRO 3 -->
-	    	<h3><a href="#">Te doy mi corazón</a></h3><!-- Encabezado de 3º orden que contiene un enlace con el título del libro 3 -->
+	    	<h3><a href="#">Te doy mi corazón</a></h3><!-- TÍTULO LIBRO 3 -->
 	    	<div class="libro" id="tres"><!-- CONTENEDOR CLASE LIBRO CON ID=TRES -->
 	    		<div class="portada"><img src="img/portada03.jpg" alt="Portada de la novela Te doy mi corazón"></div><!-- DIV CON IMAGEN PORTADA LIBRO 3 -->
 	    		<div class="texto"><!-- CONTENEDOR TEXTO -->
 		      		<p class="intro">Como en el cuento de Cenicienta, Sophie ve una noche cumplirse su sueño.</p><!-- Párrafo introductorio libro 3 -->
-			    	<img class="separador" src="img/divider.gif" alt="separador"><!-- IMAGEN SEPARADOR -->
+			    	<img class="separador" src="img/divider.gif" alt="separador"><!-- imagen separador -->
 
 			    	<!-- Párrafo argumento libro 3 -->
 					<p class="argumento">A espaldas de su madrastra, se viste como una reina y acude al baile de disfraces más importante de Londres, donde consigue captar la atención de Benedict Bridgerton, el soltero más atractivo y encantador de la reunión. Sin embargo, pronto vuelve a enfrentarse a su cruda realidad, la de una hija ilegítima, pobre y sin recursos. El destino quiere darle una segunda oportunidad cuando entra a servir en casa del joven, aunque él no reconoce en ella a la hermosa joven a la que lleva años buscando. Ella es ahora una simple criada, incapaz de revelarle la verdad. La magia de aquella noche parece perdida para siempre ¿o quizás no? <br><br>
@@ -131,12 +124,12 @@
 	  	</section><!-- FIN SECCION LIBRO 3 -->
 
 	  	<section class="lomo collapsed"><!-- SECCION LIBRO 4 -->
-	    	<h3><a href="#">Seduciendo a Mr.Bridgerton</a></h3><!-- Encabezado de 3º orden que contiene un enlace con el título del libro 4 -->
+	    	<h3><a href="#">Seduciendo a Mr.Bridgerton</a></h3><!-- TÍTULO LIBRO 4 -->
 	    	<div class="libro" id="cuatro"><!-- CONTENEDOR CLASE LIBRO CON ID=CUATRO -->
 	    		<div class="portada"><img src="img/portada04.jpg" alt="Portada de la novela Seduciendo a Mr.Bridgerton"></div><!-- DIV CON IMAGEN PORTADA LIBRO 4 -->
 	    		<div class="texto"><!-- CONTENEDOR TEXTO -->
 		      		<p class="intro">Durante toda su vida, Penélope Featherington ha sido esa presencia casi invisible a la que todos conocen pero nadie presta atención.</p><!-- Párrafo introductorio libro 4 -->
-			    	<img class="separador" src="img/divider.gif" alt="separador"><!-- IMAGEN SEPARADOR -->
+			    	<img class="separador" src="img/divider.gif" alt="separador"><!-- imagen separador -->
 
 					<!-- Párrafo argumento libro 4 -->
 					<p class="argumento">A sus veintiocho años, Penélope se ha resignado ya a convertirse en una solterona destinada a envejecer cuidando a su madre. Durante una década, ha asistido a todas las fiestas de la aristocracia londinense, y siempre ha sido la muchacha mediocre, callada, a la que nadie saca a bailar más que por compromiso, la que pasa inadvertida para todos. <br><br>
@@ -149,12 +142,12 @@
 	  	</section><!-- FIN SECCION LIBRO 4 -->
 
 	  	<section class="lomo collapsed"><!-- SECCION LIBRO 5 -->
-	    	<h3><a href="#">A Sir Phillip, con amor</a></h3><!-- Encabezado de 3º orden que contiene un enlace con el título del libro 5 -->
+	    	<h3><a href="#">A Sir Phillip, con amor</a></h3><!-- TÍTULO LIBRO 5 -->
 	    	<div class="libro" id="cinco"><!-- CONTENEDOR CLASE LIBRO CON ID=CINCO -->
 	    		<div class="portada"><img src="img/portada05.jpg" alt="Portada de la novela A Sir Phillip, con amor"></div><!-- DIV CON IMAGEN PORTADA LIBRO 5 -->
 	    		<div class="texto"><!-- CONTENEDOR TEXTO -->
 		      		<p class="intro">¿Es posible enamorarse de alguien a quien no has visto nunca? Eloise y Phillip están a punto de descubrirlo.</p><!-- Párrafo introductorio libro 5 -->
-			    	<img class="separador" src="img/divider.gif" alt="separador"><!-- IMAGEN SEPARADOR -->
+			    	<img class="separador" src="img/divider.gif" alt="separador"><!-- imagen separador -->
 
 					<!-- Párrafo argumento libro 5 -->
 					<p class="argumento">Hasta que se casó Penélope, su íntima amiga, Eloise no había sentido sobre sus delicados hombros el peso de la soltería. Pero ahora, un impulso inexplicable la empuja a cometer una locura, dejar Londres y presentarse en casa de un hombre al que sólo conoce por carta... Y así, casi sin darse cuenta de lo que hacía, se encontraba en un carruaje en mitad de la noche, en busca de lo que ella pensaba era su hombre perfecto que quiere casarse con ella. <br><br>
@@ -171,12 +164,12 @@
 	  	</section><!-- FIN SECCION LIBRO 5 -->
 
 	  	<section class="lomo collapsed"><!-- SECCION LIBRO 6 -->
-	    	<h3><a href="#">El corazón de una Bridgerton</a></h3><!-- Encabezado de 3º orden que contiene un enlace con el título del libro 6 -->
+	    	<h3><a href="#">El corazón de una Bridgerton</a></h3><!-- TÍTULO LIBRO 6 -->
 	    	<div class="libro" id="seis"><!-- CONTENEDOR CLASE LIBRO CON ID=SEIS -->
 	    		<div class="portada"><img src="img/portada06.jpg" alt="Portada de la novela El corazón de una Bridgerton"></div><!-- DIV CON IMAGEN PORTADA LIBRO 6 -->
 	    		<div class="texto"><!-- CONTENEDOR TEXTO -->
 		      		<p class="intro">El día que conoció a Francesca Bridgerton, Michael Stirling probó por primera vez el dulce sabor del amor y el amargo gusto de la desesperación.</p><!-- Párrafo introductorio libro 6 -->
-			    	<img class="separador" src="img/divider.gif" alt="separador"><!-- IMAGEN SEPARADOR -->
+			    	<img class="separador" src="img/divider.gif" alt="separador"><!-- imagen separador -->
 
 					<!-- Párrafo argumento libro 6 -->
 					<p class="argumento">Porque ella era la única mujer que había conocido que le inspiraba auténtica pasión pero, desafortunadamente para él, el apellido de Francesca seguiría siendo Bridgerton solo treinta y seis horas más, pues la ocasión de la reunión era una cena para celebrar su inminente boda con su primo John, conde de Kilmartin, al que quería más que a un hermano.<br><br>
@@ -193,12 +186,12 @@
 	  	</section><!-- FIN SECCION LIBRO 6 -->
 
 	  	<section class="lomo collapsed"><!-- SECCION LIBRO 7 -->
-	    	<h3><a href="#">Por un beso</a></h3><!-- Encabezado de 3º orden que contiene un enlace con el título del libro 7 -->
+	    	<h3><a href="#">Por un beso</a></h3><!-- TÍTULO LIBRO 7 -->
 	    	<div class="libro" id="siete"><!-- CONTENEDOR CLASE LIBRO CON ID=SIETE -->
 	    		<div class="portada"><img src="img/portada07.jpg" alt="Portada de la novela Por un beso"></div><!-- DIV CON IMAGEN PORTADA LIBRO 7 -->
 	    		<div class="texto"><!-- CONTENEDOR TEXTO -->
 		      		<p class="intro">Como cada año, Hyacinth se aburre soberanamente en el horrible concierto anual de las chicas Smythe-Smith.</p><!-- Párrafo introductorio libro 7 -->
-			    	<img class="separador" src="img/divider.gif" alt="separador"><!-- IMAGEN SEPARADOR -->
+			    	<img class="separador" src="img/divider.gif" alt="separador"><!-- imagen separador -->
 
 					<!-- Párrafo argumento libro 7 -->
 					<p class="argumento">Nuestro Héroe... Gareth St. Clair está en un aprieto. Su padre, que lo detesta, está determinado a no dejarle nada en herencia. El único legado de Gareth es un diario viejo de su familia, que puede contener los secretos de su pasado... y la llave a su futuro. El problema es que está escrito en italiano, idioma del que Gareth no entiende ni una palabra. <br><br>
@@ -213,12 +206,12 @@
 	  	</section><!-- FIN SECCION LIBRO 7 -->
 
 	  	<section class="lomo collapsed"><!-- SECCION LIBRO 8 -->
-	    	<h3><a href="#">Buscando esposa</a></h3><!-- Encabezado de 3º orden que contiene un enlace con el título del libro 8 -->
+	    	<h3><a href="#">Buscando esposa</a></h3><!-- TÍTULO LIBRO 8 -->
 	    	<div class="libro" id="ocho"><!-- CONTENEDOR CLASE LIBRO CON ID=OCHO -->
 	    		<div class="portada"><img src="img/portada08.jpg" alt="Portada de la novela Buscando esposa"></div><!-- DIV CON IMAGEN PORTADA LIBRO 8 -->
 	    		<div class="texto"><!-- CONTENEDOR TEXTO -->
 		      		<p class="intro">Todos los hijos de Violet y Edmund Bridgerton han pasado por el altar. Todos menos Gregory, el último de los hermanos, quien sigue esperando encontrar a la mujer de sus sueños.</p><!-- Párrafo introductorio libro 8 -->
-			    	<img class="separador" src="img/divider.gif" alt="separador"><!-- IMAGEN SEPARADOR -->
+			    	<img class="separador" src="img/divider.gif" alt="separador"><!-- imagen separador -->
 
 					<!-- Párrafo argumento libro 8 -->
 					<p class="argumento">Cuando, en una fiesta, sus ojos se posan sobre la bella Hermione Watson, se convence a sí mismo de que ella es la elegida. Sin embargo, la práctica y discreta amiga de Hermione, Lucy Abernathy, frustra sus esperanzas de conquista al informarle de que el corazón de su amiga pertenece a otro hombre.<br><br>
@@ -232,7 +225,7 @@
 
 	</div><!-- FIN CONTENEDOR PRINCIPAL CON LA CLASE LIBRERIA -->
 	
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script><!-- Etiqueta script que permite trabajar con la librería jQuery de Javascript, que contiene funcionalidades adicionales para dotar a la página de más efectos e interacción. El atributo src apunta al propio CDN (red de distribución de contenido) de jQuery. -->
-	<script src="js/funciones.js"></script><!-- Etiqueta script cuyo src que apunta a un archivo de javascript ejecutable (funciones.js) en la carpeta js dentro de la estructura de carpetas de la web. -->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="js/funciones.js"></script>
 </body><!-- FIN DEL BODY -->
 </html><!-- Aquí termina el documento html -->

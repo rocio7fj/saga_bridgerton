@@ -1,16 +1,5 @@
 
-/*======================== HOJA DE ESTILO =========================
-
-El diseño de la 'librería' fue pensado para desktop pero teniendo en mente a la vez su diseño en vertical como 'libros apilados' para dispositivos móviles. En un principio tenía dos archivos css, uno para vertical y otro para horizontal, pero  como ambos tenían muchas reglas comunes, con el fin de optimizar el código, decidí juntarlos en un único archivo css que presentara las reglas que ambos compartían y luego las reglas concretas para cada diseño por medio de las medias queries según la orientación de la pantalla del dispositivo: landscape (horizontal) o portrait (vertical).
-
-Por consiguiente, las reglas de estilo han quedado estructuradas de la siguiente forma: 
-  1. Reglas comunes para el diseño horizontal y el diseño vertical. 
-  2. Media queries diseño en horizontal y dentro de ellas las media queries para adaptarlo a los distintos tamaños de dispositivos.
-  3. Media queries diseño en vertical y dentro de ellas las media queries para adaptarlo a los distintos tamaños de dispositivos.
-
-  Prácticamente todas las medidas de ancho y alto se trabajan en unidades relativas (%, vw y vh) con el fin de que el diseño de la librería en forma de acordeón fluya y se adapte fácilmente a los diferentes tamaños y orientaciones de pantalla.
-
-*/
+/*======================== HOJA DE ESTILO =========================*/
 
 /* --------------- VARIABLES PARA DEFINIR LOS COLORES ---------------- */
 
@@ -29,156 +18,152 @@ Por consiguiente, las reglas de estilo han quedado estructuradas de la siguiente
 
 /* ------------------- REGLAS GENERALES ------------------- */
 
-*{/* SELECTOR UNIVERSAL. Esta regla afecta a todo el documento */
-  /* ponemos a 0 tanto margin como padding para asegurar que el navegador no ponga áñada ningún espacio por defecto */
+*{
   margin: 0;
   padding: 0;
-  box-sizing: border-box;/* para que los valores de las propiedades margin, padding y border no afecten al ancho ni al alto de los elementos */
-  scrollbar-width:none;/* oculta las barras de desplazamiento para firefox */  
+  box-sizing: border-box;
+  scrollbar-width:none;  
 }
 ::-webkit-scrollbar{ 
-    display: none;/* oculta las barras de desplazamiento en el resto de navegadores */  
+    display: none;  
 }
 
-body{/* Regla para el body donde se especifica el color de fondo, la tipografía, tamaño y color del texto */
+body{
   background-color: #fff;
   font-family: 'Roboto Slab', serif;
   font-size: 100%;
   color: var(--texto-oscuro);
 }
 
-nav{/* Regla para el menú de navegación donde se indica que su posición es fija en la ventana, está en la capa 1 (por encima de todo lo demás, tiene el fondo blanco y un borde de 2px gris) */
+nav{
   position:fixed;
   z-index: 1;
   background:#fff;
   border-bottom:2px solid #ccc;
 }
 
-nav ul{/* Regla para la lista dentro del menú donde indica que tiene una posición relativa con respecto a su contenedore nav, un margen de px y un padding del 10% a la izquierda */
+nav ul{
   position: relative;
   margin:0;
   padding-left: 10%;
 }
 
-nav li{/* Regla para los elementos de lista dentro del menú donde se indica que no tienen ningún estilo de lista por defecto, se encuentran flotando a la izquierda y ocupan todo el alto del nav  */   
+nav li{  
   list-style:none; 
   float:left;
   height:100%;
 }
 
-nav a{/* Regla para los enlaces dentro del menú en la que se les quita el subrayado que tiene el texto de los enlaces por defecto, y se define la tipografía, peso y color del texto */
+nav a{
   text-decoration:none;
   font-weight: 400;
   color: var(--texto-oscuro);
-
-  /* A continuación, para que al pasar sobre el enlace del menú, esté se subraye*/
-  background-image: linear-gradient(currentColor, currentColor);/* Se añade una imagen de fondo con un gradiente lineal del mismo color que el texto*/
-  background-position: 0% 100%;/* se define su posición desde donde comienza el texto hasta donde termina*/
-  background-repeat: no-repeat;/* se concreta que no se repita el fondo */
-  background-size: 0% 2px;/* se le da un ancho de 0 y un alto de 2px*/
-  transition: background-size .3s;/* se define una transición para el cambio del tamaño del fondo con una duración de 0.3s*/
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0% 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 2px;
+  transition: background-size .3s;
 }
 
-nav a:hover{/* Regla para el enlace del menú sobre el que se pase el cursor*/
-  background-size: 100% 2px;/* Se aumenta el ancho del fondo que pasa de 0 a 100% y así se consigue ese efecto de la línea que aparece cuando colocas el cursor por encima y desaparece cuando lo quitas*/
+nav a:hover{
+  background-size: 100% 2px;
 }
 
-.libreria{/* Regla para el div con la clase libreria que contiene todas las secciones. */
-  position: absolute;/* Se le da una posición absoluta dentro del body */
-  display: flex;/* Se define como el elemento contenedor principal, el padre flex, dentro del cual se dispondrán el resto de elementos de forma flexible. */
-  background-color: white;/* Color de fondo blanco */
-  width: 100%;/* Ocupa todo el ancho de la ventana del navegador */
+.libreria{
+  position: absolute;
+  display: flex;
+  background-color: white;
+  width: 100%;
 }
 
-.lomo{/* Regla para las secciones con la clase lomo */
-  display: flex;/* Igualmente se define como un contenedor flexible */
-  position: relative;/* Con una posición relativa con respecto al div con la clase libreria que tiene una posición absoluta */
-  transition-duration: 1200ms;/* Duración de la transición cuando se despliega la sección hacia los lados en el diseño horizontal o hacia abajo en el vertical */
-  background-repeat: no-repeat;/* Se concreta que no se repita el fondo porque cada lomo tiene un color e imagen de fondo diferentes */
+.lomo{
+  display: flex;
+  position: relative;
+  transition-duration: 1200ms;
+  background-repeat: no-repeat;
 }
 
-.lomo:nth-child(1){/* Regla para la primera sección, la sección de inicio que contiene Saga Bridgerton y autora */
-  border:none;/* Se le quita el borde */
+.lomo:nth-child(1){
+  border:none;
 }
-.lomo:nth-child(2){/* Regla para la sección del primer libro con su color de fondo */
+.lomo:nth-child(2){
   background-color: var(--fondo-libro1);
 }
-.lomo:nth-child(3){/* Regla para la sección del segundo libro con su color de fondo */
+.lomo:nth-child(3){
   background-color: var(--fondo-libro2);
 }
-.lomo:nth-child(4){/* Regla para la sección del tercer libro con su color de fondo */
+.lomo:nth-child(4){
   background-color: var(--fondo-libro3);
 }
-.lomo:nth-child(5){/* Regla para la sección del cuarto libro con su color de fondo */
+.lomo:nth-child(5){
   background-color: var(--fondo-libro4);
 }
-.lomo:nth-child(6){/* Regla para la sección del quinto libro con su color de fondo */
+.lomo:nth-child(6){
   background-color: var(--fondo-libro5);
 }
-.lomo:nth-child(7){/* Regla para la sección del sexto libro con su color de fondo y el color de texto blanco para que se lea mejor */
+.lomo:nth-child(7){
   background-color: var(--fondo-libro6);
   color: var(--texto-claro);
 }
-.lomo:nth-child(8){/* Regla para la sección del séptimo libro con su color de fondo y el color de texto blanco para que se lea mejor*/
+.lomo:nth-child(8){
   background-color: var(--fondo-libro7);
   color: var(--texto-claro);
 }
-.lomo:nth-child(9){/* Regla para la sección del octavo libro con su color de fondo */
+.lomo:nth-child(9){
   background-color: var(--fondo-libro8);
 }
 
-.lomo h1,.lomo h2, .lomo h3{/* Regla para los encabezados dentro de las secciones con la clase lomo donde se define su familia tipográfica, peso y estilo */
+.lomo h1,.lomo h2, .lomo h3{
   font-family: 'Bodoni Moda', serif;
   font-weight: normal;
   font-style: italic;
 }
 
-.lomo h3{/* Regla para definir la posición de los títulos como absoluta dentro de la sección con la clase lomo que el corresponda */
+.lomo h3{
   position: absolute;
 }
 
-.lomo h3 a{/* Regla para quitar el subrayado y el color azul a los enlaces de los lomos */
+.lomo h3 a{
   text-decoration: none;
-  color: var(--texto-claro);/* Color del texto blanco */
+  color: var(--texto-claro);
 }
 
-.lomo a{/* Regla para quitar el subrayado a los enlaces dentro de lomo*/
+.lomo a{
   text-decoration: none;
 }
 
-.libro{/* Regla para el div con la clase libro que contiene las imágenes y el texto de cada sección  */
-  display: none;/* En un principio se encuentra oculto */
-  flex-direction: column;/* Se establece como eje principal el eje vertical por lo que los lementos flex dentro de él se colocarán verticalmente de arriba abajo */
-  align-items: center;/* Los elementos se colocarán en el centro del contenedor sobre el eje vertical */
-  opacity: 0;/* El valor cambiará a 1 cuando el contenedor se haga visible para que el contenido se vea sólo entonces */
-  line-height: 1.5em;/* Altura de línea del texto */
-  letter-spacing: 0.025em;/* Espacio entre las letras */
-  font-weight: 300;/* peso de la tipofrafía 'Roboto Slab' para el texto dentro de libro*/
+.libro{
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0;
+  line-height: 1.5em;
+  letter-spacing: 0.025em;
+  font-weight: 300;
 }
 
-.seccion{/* Regla para las secciones con la clase seccion (Saga Bridgerton y autora) */
-  display: none;/* Está oculta. Sólo será visible cuando también tenga la clase activa */
-  width: 100%;/* Ocupa todo el ancho y */
-  height: 100%;/* el alto de la sección que la contiene (la de inicio) */
+.seccion{
+  display: none;
+  width: 100%;
+  height: 100%;
 }
 
-#titulo{/* Regla para el título Saga Bridgerton dentro de la sección de inicio para colocarlo y darle una altura de linea concreta */
+#titulo{
   margin-bottom: 4%;
   line-height: 1.1em;
 }
 
-#nombreAutora{/* Regla para el título de la autora en su sección donde se especifica su tamaño, se le da espacio por arriba y abajo y se centra */
+#nombreAutora{
   font-size: 2em;
   margin:10% auto 0;
 }
 
-#imagenAutora img{/* Regla para la imagen de la autora dentro de su contenedor */
-  display: block;/* Ahora se comporta como un elemento de bloque, por lo que podemos posicionarla, manipular su ancho y alto y darle margen */
-  width: 50%;/* Su ancho es de la mitad del ancho de su contenedor, que al no tenerlo definido tendrá entonces el mismo que su contenedor padre con la clase libro */
-  margin: 4% auto;/* Un poco de aire por arriba y por abajo y centrado de forma automática */
+#imagenAutora img{
+  display: block;
+  width: 50%;
+  margin: 4% auto;
 }
 
-/* A continuación ocho reglas, una para cada div libro con su color de fondo correspondiente. Son necesaarias para ocultar la imagen de fondo del lomo de cada sección. Éstas se definen más abajo (puesto que tienen una orientación diferente según sea su diseño horizontal o vertical), sólo se tienen que ver cuando los lomos están colapsados, nunca cuando el libro esté desplegado */
 #uno{
   background-color: var(--fondo-libro1);
 }
@@ -204,52 +189,52 @@ nav a:hover{/* Regla para el enlace del menú sobre el que se pase el cursor*/
   background-color: var(--fondo-libro8);
 }
 
-.portada img{/* Regla para la imagen dentro del div con la clase portada para indicarle que se comporte como un bloque */
+.portada img{
   display:block;
 }
 
-.separador{/* Regla para la imagen con la clase separador para indicarle que se comporte como un bloque, ocupe un ancho del 50% de su contenedor padre, deje espacio por encima y por debajo y se centre */
+.separador{
   display: block;
   width: 50%;
   margin: 3vh auto;
 }
 
-.libro .intro{/* Regla para el párrafo introductorio dentro de cada libro */
-  text-transform: uppercase;/* texto en mayúsculas */
-  text-align: center;/* centrado */
-  margin-top: 10%;/* con espacio por arriba */
-  font-weight: 400;/* con un peso mayor */
+.libro .intro{
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 10%;
+  font-weight: 400;
 }
 
-.libro .argumento{/* Regla para el párrafo con el argumento dentro de cada libro */
-  font-style: italic;/* texto en cursiva */
-  text-align: justify;/* texto justificado */
-  text-align-last: center;/* centrada la última línea de cada párrafo para imitar el diseño de la contraportada del libro original*/
+.libro .argumento{
+  font-style: italic;
+  text-align: justify;
+  text-align-last: center;
 }
 
 @supports ((-webkit-hyphens:auto) or (hyphens:auto)) {
-  .libro .argumento{/* Regla para el texto del argumento de cada libro */
+  .libro .argumento{
     hyphens: auto;/*para que al justicar el texto automáticamente rompa las palabras con un guión y no queden espacios tan grandes entre las palabras. Es necesario especificar en la etiqueta html de la página el idioma en el que está escrita la misma mediante el atributo lang. Útil sobre todo para pantallas estrechas donde el texto justificado deja espacios que hacen la lectura poco agradable*/
     -webkit-hyphens: auto; /* A día de hoy aún es necesario el prefijo para soportar a Safari */
   }
 }
 
-.fin{/* Regla para la imagen con la clase fin, la de la contraportada para indicarle que se comporte como un bloque, ocupe un ancho del 60% de su contenedor padre, se centre y deje un poco de aire por debajo */
+.fin{
   display: block;
   width: 60%;
   margin: auto;
   padding-bottom: 3vh;
 }
 
-.activa.seccion{/* Regla para la sección con la clase activa dentro de la sección inicio (Saga Bridgerton o autora) para hacerla visible */
-  display: flex;/* la seccion con la clase activa pasa a ser un contenedor flex */ 
+.activa.seccion{
+  display: flex; 
 }
 
-.desplegado h3{/* Regla para ocultar el h3 de la sección con la clase lomo tenga además la clase desplegado, es decir, el h3 con el título de cada libro solo se verá cuando esté cerrado, cuando se despliegue y se abra entonces quedará oculto */
+.desplegado h3{
   display: none;
 }
 
-.desplegado .libro{/* Regla para mostrar el contenido del libro cuando este se despliegue */
+.desplegado .libro{
   display: flex;/* el div con las clases desplegado y libro pasa a ser un contenedor flex */ 
   overflow-y: auto;/* Para poder hacer scroll vertical cuando el contenido se desborde */
   opacity: 1;/* Se hace visible al pasarla de 0 a 1 */
@@ -269,7 +254,7 @@ nav a:hover{/* Regla para el enlace del menú sobre el que se pase el cursor*/
     height:5vw;
   }
 
-  nav li{/* Regla para que los li del menú tengan una separación de 30 px por la derecha que ahora es por abajo */
+  nav li{
     margin-right:30px;
   }
 
@@ -294,7 +279,6 @@ nav a:hover{/* Regla para el enlace del menú sobre el que se pase el cursor*/
     background-size:45vh;/*utlizo vh para darle un alto fijo a la imagen y así ésta mantenga su tamaño independientemente del ancho de la pantalla*/
   }
 
-/* A continuación ocho reglas, una para cada lomo de un libro con su imagen de fondo correspondiente */
   .lomo:nth-child(2){
     background-image:url("../img/lomo-01.gif");  
     border-left:4px solid #fff;/*en este caso al ser el borde del primer libro y no tener ninguno a su izquierda, se le pone el borde de este lado a 4px*/
@@ -339,11 +323,11 @@ nav a:hover{/* Regla para el enlace del menú sobre el que se pase el cursor*/
     margin-left: 5vw;
   }
 
-  #titulo{/* Regla para colocar el h1 con el título en la seción de inicio (para dejar espacio por encima de él) */
+  #titulo{
     padding-top: 6vh;
   }
 
-  .portada{/* Regla para especificar que el ancho del div con la imagen de portada es el de la imagen que contiene */
+  .portada{
     display: block;
     width: auto;
   }
@@ -352,7 +336,7 @@ nav a:hover{/* Regla para el enlace del menú sobre el que se pase el cursor*/
     height: 100vh;
   }
 
-  .desplegado{/* Regla para especificar el ancho de la sección que tenga la clase desplegado */
+  .desplegado{
     width: 60vw;
   }
 
@@ -507,14 +491,14 @@ nav a:hover{/* Regla para el enlace del menú sobre el que se pase el cursor*/
   nav{/* Regla para que el menú de navegación se muestre en la parte superior de la ventana */
     top: 0;
     width:100%;/* ocupa todo el ancho de la ventana */    
-    height:11vh;/* y tiene una altura de 11vh o lo que es los mismo del 11% de la altura de toda la ventana */
+    height:11vh;
   }
 
   nav li{/* Regla para definir el espacio entre los elementos del menú */  
     margin-right:7%;
   }
 
-  nav a{/* Regla para definir el tamaño de fuente de los enlaces y su altura de línea */
+  nav a{
     font-size: 0.8em;
     line-height: 11vh;
   }
@@ -535,7 +519,6 @@ nav a:hover{/* Regla para el enlace del menú sobre el que se pase el cursor*/
     background-size: 34%;/* y este su tamaño */
   }
 
-/* A continuación ocho reglas, una para cada lomo de un libro con su imagen de fondo correspondiente (son las mismas que en horizontal pero giradas) */
   .lomo:nth-child(2){
     background-image:url("../img/lomo01.gif");  
   }
@@ -577,7 +560,7 @@ nav a:hover{/* Regla para el enlace del menú sobre el que se pase el cursor*/
   }
 
   .portada{/* Regla para el div que contiene la imagen de portada dentro de cada sección */
-    display:flex;/* se define como un contenedor flexible */
+    display:flex;
     align-items: flex-start;/* para que la imagen se coloque donde empieza el div */
     padding: 0 5%;/*para centrar la imagen dentro del contenedor*/
   }
@@ -587,7 +570,7 @@ nav a:hover{/* Regla para el enlace del menú sobre el que se pase el cursor*/
     height: auto;/* la altura se calculará automáticamente en función del ancho */
   }
 
-  .texto{/* Regla para darle un margen al contenedor con las clase texto dentro del libro */
+  .texto{
     margin:0 10%;
   }
 

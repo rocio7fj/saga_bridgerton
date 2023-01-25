@@ -235,11 +235,11 @@ nav a:hover{
 }
 
 .desplegado .libro{
-  display: flex;/* el div con las clases desplegado y libro pasa a ser un contenedor flex */ 
-  overflow-y: auto;/* Para poder hacer scroll vertical cuando el contenido se desborde */
-  opacity: 1;/* Se hace visible al pasarla de 0 a 1 */
+  display: flex;
+  overflow-y: auto;
+  opacity: 1;
   transition-property: opacity;
-  transition-duration: 1200ms;/* la duración de la transición es la misma que la del despliegue de la sección */
+  transition-duration: 1200ms;
 }
 
 
@@ -247,7 +247,7 @@ nav a:hover{
 
 @media screen and (orientation:landscape){
   
-  nav{/* Regla para que el menú de navegación se muestre en el lateral izquiero de la ventana transformando el origen, rotando el menú y trasladando su eje x. Al hacer esto el alto se convierte en el ancho y el ancho en el alto */
+  nav{
     -webkit-transform-origin: left top;
     -webkit-transform:rotate(-90deg) translateX(-100%);
     width:100vh;    
@@ -258,30 +258,30 @@ nav a:hover{
     margin-right:30px;
   }
 
-  nav a{/* Regla para que los enlaces del menú tengan una altura de linea que los separe del lado izquierdo y los centre en el menú */
+  nav a{
     line-height: 5vw;
   }
 
-  .libreria{/* Regla para que el div libreria ocupe todo el alto de la ventana y como máximo todo el ancho de la misma */
+  .libreria{
     height: 100vh;
     max-width: 100%;
   }
 
-  .lomo{/* Regla para las secciones en horizontal */
-    height: 100vh;/* ocupan todo el alto de la ventana */
-    width: 5vw;/* ancho de las secciones que se encuentren cerradas (colapsadas) */
-    border-top:4px solid #fff;/* los bordes de arriba y abajo de cada sección son de 4 px */
+  .lomo{
+    height: 100vh;
+    width: 5vw;
+    border-top:4px solid #fff;
     border-bottom:4px solid #fff;
-    border-right:2px solid #fff;/* mientras que los bordes de los lados son de la mitad porque se juntan con el de la sección de al lado y así suman 4px */
+    border-right:2px solid #fff;
     border-left:2px solid #fff;
-    transition-property: width;/* la propiedad que cambia cuando se vaya a desplegar/replegar la sección es el ancho */
-    background-position: bottom;/* la posición de las imágenes de fondo de cada lomo es abajo */
-    background-size:45vh;/*utlizo vh para darle un alto fijo a la imagen y así ésta mantenga su tamaño independientemente del ancho de la pantalla*/
+    transition-property: width;
+    background-position: bottom;
+    background-size:45vh;
   }
 
   .lomo:nth-child(2){
     background-image:url("../img/lomo-01.gif");  
-    border-left:4px solid #fff;/*en este caso al ser el borde del primer libro y no tener ninguno a su izquierda, se le pone el borde de este lado a 4px*/
+    border-left:4px solid #fff;
   }
   .lomo:nth-child(3){
     background-image:url("../img/lomo-02.gif");  
@@ -303,23 +303,23 @@ nav a:hover{
   }
   .lomo:nth-child(9){
     background-image:url("../img/lomo-08.gif");  
-    border-right:4px solid #fff;/*al ser el borde del últimor libro y no tener ninguno a su derecha, se le pone el borde de este lado a 4px*/
+    border-right:4px solid #fff;
   }
 
-  .lomo h3{/* Regla para los h3 de los lomos en horizontal */
-    display: none;/*si no hay ningún libro abierto no se ven los títulos*/
-    white-space: nowrap;/*para que se ponga una palabra al lado de otra*/
-    font-size: 2em;/* tamaño de los títulos */
-    transform: rotate(-90deg);/* se rotan 90deg en sentido contrario a las agujas del reloj */
-    bottom: 30vh;/* Separación con la parte inferior de la ventana */
+  .lomo h3{
+    display: none;
+    white-space: nowrap;
+    font-size: 2em;
+    transform: rotate(-90deg);
+    bottom: 30vh;
   }
 
-  .libro{/* Regla para los divs con la clase libro tengan como máximo la altura de sus divs secciones con la clase lomo (todo el alto de la ventana) y un padding del 10% a ambos lados de manera que los elementos dentro de él queden centrados */
+  .libro{
     max-height: 100%;
     padding: 0 10%;
   }
 
-  #inicio .libro{/* Regla para que cuando la sección de inicio esté desplegada haya espacio entre el contenido de ésta y el menú(que tiene una posición fija y está por encima de la librería, de forma que si no se añade espacio en esta sección que es la que está justo debajo de él, el menú taparía el contenido) */
+  #inicio .libro{
     margin-left: 5vw;
   }
 
@@ -332,7 +332,7 @@ nav a:hover{
     width: auto;
   }
 
-  .portada img{/* Regla para especificar que el alto de la imagen de portada es el de la ventana del navegador, con lo que su ancho lo calcula automáticamente manteniendo las proporciones de dicha imagen */
+  .portada img{
     height: 100vh;
   }
 
@@ -340,12 +340,12 @@ nav a:hover{
     width: 60vw;
   }
 
-  .lomo.collapsed{/* Regla para los lomos de las secciones que se encuentren cerradas (colapsadas) cuando otra se despliega */
-    background-position: bottom;/* pa fijar en la parte inferior las imágenes de fondo de los lomos */
-    background-size:27vh;  /*para hacer que se vea solo una parte de las imágenes de los lomos cuando están colapsados*/
+  .lomo.collapsed{
+    background-position: bottom;
+    background-size:27vh;
   }
 
-  .collapsed h3{/* Regla para hacer visible y colocar el título en el lomo del libro cuando esté colapsado. En este caso se utiliza el ancho para colocarlo */
+  .collapsed h3{
     display: inline-block;
     width: 4.5vw;
   }
@@ -488,13 +488,13 @@ nav a:hover{
 
 @media screen and (orientation:portrait){
   
-  nav{/* Regla para que el menú de navegación se muestre en la parte superior de la ventana */
+  nav{
     top: 0;
-    width:100%;/* ocupa todo el ancho de la ventana */    
+    width:100%;
     height:11vh;
   }
 
-  nav li{/* Regla para definir el espacio entre los elementos del menú */  
+  nav li{
     margin-right:7%;
   }
 
@@ -503,20 +503,20 @@ nav a:hover{
     line-height: 11vh;
   }
 
-  .libreria{/* Regla para que las secciones dentro de la librería se muestren una debajo de otra en vez de al lado como en el diseño horizontal */
+  .libreria{
     flex-direction: column;
   }
 
-  .lomo{/* Regla para la secciones con la clase lomo en vertical */
-    height: 11.111vh;/* altura cuando la sección está cerrada, simulando el lomo del libro */
-    width: 100%;/* ocupa todo el ancho de su contenedor (la libreria) que es del 100% de la ventana */
-    border-top:1px solid #fff;/* ahora los bordes superiores e inferiors con más finos que los laterales (al contrario que en horizontal) */
+  .lomo{
+    height: 11.111vh;
+    width: 100%;
+    border-top:1px solid #fff;
     border-bottom:1px solid #fff;
     border-right:2px solid #fff;
     border-left:2px solid #fff;
-    transition-property: height;/* ahora al desplegarse (hacia abajo) la propiedad cuyo valor se modifica es la altura (en horizontal se modifica el ancho) */
-    background-position: left;/* las imágenes de fondo de los lomos se posicionan a la izquierda (en horizontal es abajo) */
-    background-size: 34%;/* y este su tamaño */
+    transition-property: height;
+    background-position: left;
+    background-size: 34%;
   }
 
   .lomo:nth-child(2){
@@ -542,43 +542,43 @@ nav a:hover{
   }
   .lomo:nth-child(9){
     background-image:url("../img/lomo08.gif"); 
-    border-bottom:2px solid #fff;/*en este caso al ser el borde del último libro y no tener ninguno por debajo, se aumenta el tamaño del borde inferior*/  
+    border-bottom:2px solid #fff;
   }
   
-  .lomo h3{/* Regla para colocar los títulos dentro de los lomos */
-    line-height: 4vh;/* con la altura de línea se centran */
-    left: 38vw;/* para dejar suficiente espacio a la izquierda de forma que no tapen las imágenes de los lomos */
-    margin-right: 5%;/* para asegurar que siempre quede un poco de aire a la derecha */
+  .lomo h3{
+    line-height: 4vh;
+    left: 38vw;
+    margin-right: 5%;
   }
 
-  #titulo{/* Regla para definir el tamaño del título de la página (el h1 dentro de la sección de inicio) */
+  #titulo{
     font-size: 2.5em;
   }
 
-  #nombreAutora{/* Regla para colocar el título de la sección de la autora */
+  #nombreAutora{
     margin: 0 auto 2%;
   }
 
-  .portada{/* Regla para el div que contiene la imagen de portada dentro de cada sección */
+  .portada{
     display:flex;
-    align-items: flex-start;/* para que la imagen se coloque donde empieza el div */
-    padding: 0 5%;/*para centrar la imagen dentro del contenedor*/
+    align-items: flex-start;
+    padding: 0 5%;
   }
 
-  .portada img{/* Regla para la imagen dentro del div con la clase portada */
-    width: 99%;/* se define el tamaño en función de su ancho, que será del 99% del div */ 
-    height: auto;/* la altura se calculará automáticamente en función del ancho */
+  .portada img{
+    width: 99%;
+    height: auto;
   }
 
   .texto{
     margin:0 10%;
   }
 
-  .desplegado{/* Regla para la sección que se despliega */
-    height: auto;/* se calcula la altura de la sección de forma automática en función de lo que ocupe su contenido */
+  .desplegado{
+    height: auto;
   }
 
-  #inicio.desplegado {/* Regla para controlar el espacio hacia dentro de la sección de inicio cuando está desplegada */
+  #inicio.desplegado {
     padding: 90px 10% 30px 10%;
   }
 
@@ -595,7 +595,7 @@ nav a:hover{
       top:8%;
     }
     .libro{
-      font-size: 0.8em;/* el texto dentro del libro empieza con este tamaño e irá aumentando en las media queries de más abajo conforme vaya aumentando el tamaño de pantalla de los dispositivos */
+      font-size: 0.8em;
     }
     #inicio.desplegado {
       padding-top: 13vh;
@@ -764,10 +764,10 @@ nav a:hover{
     }
   } 
   @media screen and (min-height: 1024px){/*para iPad*/
-    #inicio.desplegado {/* para adaptar el espacio entre el menú y el texto */
+    #inicio.desplegado {
       padding-top:140px;
     }
-    .portada{/* para encajar la imagen de la portada y que se vea entera y ocupe todo el alto al desplegar cada libro */
+    .portada{
       padding: 0 7%;
     }
   }

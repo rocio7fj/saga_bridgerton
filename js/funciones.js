@@ -55,9 +55,7 @@ $(function(){
 				$(this).siblings().removeClass("desplegado");
 				$(this).addClass("desplegado");
 				$(this).siblings().addClass("collapsed");
-			}else{
-				$(this).toggleClass("collapsed");
-				$(this).siblings().toggleClass("collapsed");
+			}else if ($(this).hasClass("desplegado")){
 				desplegarPrimero();
 			}
 

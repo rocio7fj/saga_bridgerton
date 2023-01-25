@@ -1,0 +1,808 @@
+
+/*======================== HOJA DE ESTILO =========================
+
+El diseño de la 'librería' fue pensado para desktop pero teniendo en mente a la vez su diseño en vertical como 'libros apilados' para dispositivos móviles. En un principio tenía dos archivos css, uno para vertical y otro para horizontal, pero  como ambos tenían muchas reglas comunes, con el fin de optimizar el código, decidí juntarlos en un único archivo css que presentara las reglas que ambos compartían y luego las reglas concretas para cada diseño por medio de las medias queries según la orientación de la pantalla del dispositivo: landscape (horizontal) o portrait (vertical).
+
+Por consiguiente, las reglas de estilo han quedado estructuradas de la siguiente forma: 
+  1. Reglas comunes para el diseño horizontal y el diseño vertical. 
+  2. Media queries diseño en horizontal y dentro de ellas las media queries para adaptarlo a los distintos tamaños de dispositivos.
+  3. Media queries diseño en vertical y dentro de ellas las media queries para adaptarlo a los distintos tamaños de dispositivos.
+
+  Prácticamente todas las medidas de ancho y alto se trabajan en unidades relativas (%, vw y vh) con el fin de que el diseño de la librería en forma de acordeón fluya y se adapte fácilmente a los diferentes tamaños y orientaciones de pantalla.
+
+*/
+
+/* --------------- VARIABLES PARA DEFINIR LOS COLORES ---------------- */
+
+:root {
+  --texto-claro: #fff;
+  --texto-oscuro: #1D1814;
+  --fondo-libro1: #d6a2c9;
+  --fondo-libro2: #69c3de;
+  --fondo-libro3: #ea70a1;
+  --fondo-libro4: #ee7f85;
+  --fondo-libro5: #fac158;
+  --fondo-libro6: #e41b23;
+  --fondo-libro7: #08898e;
+  --fondo-libro8: #58b983;
+}
+
+/* ------------------- REGLAS GENERALES ------------------- */
+
+*{/* SELECTOR UNIVERSAL. Esta regla afecta a todo el documento */
+  /* ponemos a 0 tanto margin como padding para asegurar que el navegador no ponga áñada ningún espacio por defecto */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;/* para que los valores de las propiedades margin, padding y border no afecten al ancho ni al alto de los elementos */
+  scrollbar-width:none;/* oculta las barras de desplazamiento para firefox */  
+}
+::-webkit-scrollbar{ 
+    display: none;/* oculta las barras de desplazamiento en el resto de navegadores */  
+}
+
+body{/* Regla para el body donde se especifica el color de fondo, la tipografía, tamaño y color del texto */
+  background-color: #fff;
+  font-family: 'Roboto Slab', serif;
+  font-size: 100%;
+  color: var(--texto-oscuro);
+}
+
+nav{/* Regla para el menú de navegación donde se indica que su posición es fija en la ventana, está en la capa 1 (por encima de todo lo demás, tiene el fondo blanco y un borde de 2px gris) */
+  position:fixed;
+  z-index: 1;
+  background:#fff;
+  border-bottom:2px solid #ccc;
+}
+
+nav ul{/* Regla para la lista dentro del menú donde indica que tiene una posición relativa con respecto a su contenedore nav, un margen de px y un padding del 10% a la izquierda */
+  position: relative;
+  margin:0;
+  padding-left: 10%;
+}
+
+nav li{/* Regla para los elementos de lista dentro del menú donde se indica que no tienen ningún estilo de lista por defecto, se encuentran flotando a la izquierda y ocupan todo el alto del nav  */   
+  list-style:none; 
+  float:left;
+  height:100%;
+}
+
+nav a{/* Regla para los enlaces dentro del menú en la que se les quita el subrayado que tiene el texto de los enlaces por defecto, y se define la tipografía, peso y color del texto */
+  text-decoration:none;
+  font-weight: 400;
+  color: var(--texto-oscuro);
+
+  /* A continuación, para que al pasar sobre el enlace del menú, esté se subraye*/
+  background-image: linear-gradient(currentColor, currentColor);/* Se añade una imagen de fondo con un gradiente lineal del mismo color que el texto*/
+  background-position: 0% 100%;/* se define su posición desde donde comienza el texto hasta donde termina*/
+  background-repeat: no-repeat;/* se concreta que no se repita el fondo */
+  background-size: 0% 2px;/* se le da un ancho de 0 y un alto de 2px*/
+  transition: background-size .3s;/* se define una transición para el cambio del tamaño del fondo con una duración de 0.3s*/
+}
+
+nav a:hover{/* Regla para el enlace del menú sobre el que se pase el cursor*/
+  background-size: 100% 2px;/* Se aumenta el ancho del fondo que pasa de 0 a 100% y así se consigue ese efecto de la línea que aparece cuando colocas el cursor por encima y desaparece cuando lo quitas*/
+}
+
+.libreria{/* Regla para el div con la clase libreria que contiene todas las secciones. */
+  position: absolute;/* Se le da una posición absoluta dentro del body */
+  display: flex;/* Se define como el elemento contenedor principal, el padre flex, dentro del cual se dispondrán el resto de elementos de forma flexible. */
+  background-color: white;/* Color de fondo blanco */
+  width: 100%;/* Ocupa todo el ancho de la ventana del navegador */
+}
+
+.lomo{/* Regla para las secciones con la clase lomo */
+  display: flex;/* Igualmente se define como un contenedor flexible */
+  position: relative;/* Con una posición relativa con respecto al div con la clase libreria que tiene una posición absoluta */
+  transition-duration: 1200ms;/* Duración de la transición cuando se despliega la sección hacia los lados en el diseño horizontal o hacia abajo en el vertical */
+  background-repeat: no-repeat;/* Se concreta que no se repita el fondo porque cada lomo tiene un color e imagen de fondo diferentes */
+}
+
+.lomo:nth-child(1){/* Regla para la primera sección, la sección de inicio que contiene Saga Bridgerton y autora */
+  border:none;/* Se le quita el borde */
+}
+.lomo:nth-child(2){/* Regla para la sección del primer libro con su color de fondo */
+  background-color: var(--fondo-libro1);
+}
+.lomo:nth-child(3){/* Regla para la sección del segundo libro con su color de fondo */
+  background-color: var(--fondo-libro2);
+}
+.lomo:nth-child(4){/* Regla para la sección del tercer libro con su color de fondo */
+  background-color: var(--fondo-libro3);
+}
+.lomo:nth-child(5){/* Regla para la sección del cuarto libro con su color de fondo */
+  background-color: var(--fondo-libro4);
+}
+.lomo:nth-child(6){/* Regla para la sección del quinto libro con su color de fondo */
+  background-color: var(--fondo-libro5);
+}
+.lomo:nth-child(7){/* Regla para la sección del sexto libro con su color de fondo y el color de texto blanco para que se lea mejor */
+  background-color: var(--fondo-libro6);
+  color: var(--texto-claro);
+}
+.lomo:nth-child(8){/* Regla para la sección del séptimo libro con su color de fondo y el color de texto blanco para que se lea mejor*/
+  background-color: var(--fondo-libro7);
+  color: var(--texto-claro);
+}
+.lomo:nth-child(9){/* Regla para la sección del octavo libro con su color de fondo */
+  background-color: var(--fondo-libro8);
+}
+
+.lomo h1,.lomo h2, .lomo h3{/* Regla para los encabezados dentro de las secciones con la clase lomo donde se define su familia tipográfica, peso y estilo */
+  font-family: 'Bodoni Moda', serif;
+  font-weight: normal;
+  font-style: italic;
+}
+
+.lomo h3{/* Regla para definir la posición de los títulos como absoluta dentro de la sección con la clase lomo que el corresponda */
+  position: absolute;
+}
+
+.lomo h3 a{/* Regla para quitar el subrayado y el color azul a los enlaces de los lomos */
+  text-decoration: none;
+  color: var(--texto-claro);/* Color del texto blanco */
+}
+
+.lomo a{/* Regla para quitar el subrayado a los enlaces dentro de lomo*/
+  text-decoration: none;
+}
+
+.libro{/* Regla para el div con la clase libro que contiene las imágenes y el texto de cada sección  */
+  display: none;/* En un principio se encuentra oculto */
+  flex-direction: column;/* Se establece como eje principal el eje vertical por lo que los lementos flex dentro de él se colocarán verticalmente de arriba abajo */
+  align-items: center;/* Los elementos se colocarán en el centro del contenedor sobre el eje vertical */
+  opacity: 0;/* El valor cambiará a 1 cuando el contenedor se haga visible para que el contenido se vea sólo entonces */
+  line-height: 1.5em;/* Altura de línea del texto */
+  letter-spacing: 0.025em;/* Espacio entre las letras */
+  font-weight: 300;/* peso de la tipofrafía 'Roboto Slab' para el texto dentro de libro*/
+}
+
+.seccion{/* Regla para las secciones con la clase seccion (Saga Bridgerton y autora) */
+  display: none;/* Está oculta. Sólo será visible cuando también tenga la clase activa */
+  width: 100%;/* Ocupa todo el ancho y */
+  height: 100%;/* el alto de la sección que la contiene (la de inicio) */
+}
+
+#titulo{/* Regla para el título Saga Bridgerton dentro de la sección de inicio para colocarlo y darle una altura de linea concreta */
+  margin-bottom: 4%;
+  line-height: 1.1em;
+}
+
+#nombreAutora{/* Regla para el título de la autora en su sección donde se especifica su tamaño, se le da espacio por arriba y abajo y se centra */
+  font-size: 2em;
+  margin:10% auto 0;
+}
+
+#imagenAutora img{/* Regla para la imagen de la autora dentro de su contenedor */
+  display: block;/* Ahora se comporta como un elemento de bloque, por lo que podemos posicionarla, manipular su ancho y alto y darle margen */
+  width: 50%;/* Su ancho es de la mitad del ancho de su contenedor, que al no tenerlo definido tendrá entonces el mismo que su contenedor padre con la clase libro */
+  margin: 4% auto;/* Un poco de aire por arriba y por abajo y centrado de forma automática */
+}
+
+/* A continuación ocho reglas, una para cada div libro con su color de fondo correspondiente. Son necesaarias para ocultar la imagen de fondo del lomo de cada sección. Éstas se definen más abajo (puesto que tienen una orientación diferente según sea su diseño horizontal o vertical), sólo se tienen que ver cuando los lomos están colapsados, nunca cuando el libro esté desplegado */
+#uno{
+  background-color: var(--fondo-libro1);
+}
+#dos{
+  background-color: var(--fondo-libro2);
+}
+#tres{
+  background-color: var(--fondo-libro3);
+}
+#cuatro{
+  background-color: var(--fondo-libro4);
+}
+#cinco{
+  background-color: var(--fondo-libro5);
+}
+#seis{
+  background-color: var(--fondo-libro6);
+}
+#siete{
+  background-color: var(--fondo-libro7);
+}
+#ocho{
+  background-color: var(--fondo-libro8);
+}
+
+.portada img{/* Regla para la imagen dentro del div con la clase portada para indicarle que se comporte como un bloque */
+  display:block;
+}
+
+.separador{/* Regla para la imagen con la clase separador para indicarle que se comporte como un bloque, ocupe un ancho del 50% de su contenedor padre, deje espacio por encima y por debajo y se centre */
+  display: block;
+  width: 50%;
+  margin: 3vh auto;
+}
+
+.libro .intro{/* Regla para el párrafo introductorio dentro de cada libro */
+  text-transform: uppercase;/* texto en mayúsculas */
+  text-align: center;/* centrado */
+  margin-top: 10%;/* con espacio por arriba */
+  font-weight: 400;/* con un peso mayor */
+}
+
+.libro .argumento{/* Regla para el párrafo con el argumento dentro de cada libro */
+  font-style: italic;/* texto en cursiva */
+  text-align: justify;/* texto justificado */
+  text-align-last: center;/* centrada la última línea de cada párrafo para imitar el diseño de la contraportada del libro original*/
+}
+
+@supports ((-webkit-hyphens:auto) or (hyphens:auto)) {
+  .libro .argumento{/* Regla para el texto del argumento de cada libro */
+    hyphens: auto;/*para que al justicar el texto automáticamente rompa las palabras con un guión y no queden espacios tan grandes entre las palabras. Es necesario especificar en la etiqueta html de la página el idioma en el que está escrita la misma mediante el atributo lang. Útil sobre todo para pantallas estrechas donde el texto justificado deja espacios que hacen la lectura poco agradable*/
+    -webkit-hyphens: auto; /* A día de hoy aún es necesario el prefijo para soportar a Safari */
+  }
+}
+
+.fin{/* Regla para la imagen con la clase fin, la de la contraportada para indicarle que se comporte como un bloque, ocupe un ancho del 60% de su contenedor padre, se centre y deje un poco de aire por debajo */
+  display: block;
+  width: 60%;
+  margin: auto;
+  padding-bottom: 3vh;
+}
+
+.activa.seccion{/* Regla para la sección con la clase activa dentro de la sección inicio (Saga Bridgerton o autora) para hacerla visible */
+  display: flex;/* la seccion con la clase activa pasa a ser un contenedor flex */ 
+}
+
+.desplegado h3{/* Regla para ocultar el h3 de la sección con la clase lomo tenga además la clase desplegado, es decir, el h3 con el título de cada libro solo se verá cuando esté cerrado, cuando se despliegue y se abra entonces quedará oculto */
+  display: none;
+}
+
+.desplegado .libro{/* Regla para mostrar el contenido del libro cuando este se despliegue */
+  display: flex;/* el div con las clases desplegado y libro pasa a ser un contenedor flex */ 
+  overflow-y: auto;/* Para poder hacer scroll vertical cuando el contenido se desborde */
+  opacity: 1;/* Se hace visible al pasarla de 0 a 1 */
+  transition-property: opacity;
+  transition-duration: 1200ms;/* la duración de la transición es la misma que la del despliegue de la sección */
+}
+
+
+/* MEDIA QUERIES PARA EL DISEÑO HORIZONTAL */
+
+@media screen and (orientation:landscape){
+  
+  nav{/* Regla para que el menú de navegación se muestre en el lateral izquiero de la ventana transformando el origen, rotando el menú y trasladando su eje x. Al hacer esto el alto se convierte en el ancho y el ancho en el alto */
+    -webkit-transform-origin: left top;
+    -webkit-transform:rotate(-90deg) translateX(-100%);
+    width:100vh;    
+    height:5vw;
+  }
+
+  nav li{/* Regla para que los li del menú tengan una separación de 30 px por la derecha que ahora es por abajo */
+    margin-right:30px;
+  }
+
+  nav a{/* Regla para que los enlaces del menú tengan una altura de linea que los separe del lado izquierdo y los centre en el menú */
+    line-height: 5vw;
+  }
+
+  .libreria{/* Regla para que el div libreria ocupe todo el alto de la ventana y como máximo todo el ancho de la misma */
+    height: 100vh;
+    max-width: 100%;
+  }
+
+  .lomo{/* Regla para las secciones en horizontal */
+    height: 100vh;/* ocupan todo el alto de la ventana */
+    width: 5vw;/* ancho de las secciones que se encuentren cerradas (colapsadas) */
+    border-top:4px solid #fff;/* los bordes de arriba y abajo de cada sección son de 4 px */
+    border-bottom:4px solid #fff;
+    border-right:2px solid #fff;/* mientras que los bordes de los lados son de la mitad porque se juntan con el de la sección de al lado y así suman 4px */
+    border-left:2px solid #fff;
+    transition-property: width;/* la propiedad que cambia cuando se vaya a desplegar/replegar la sección es el ancho */
+    background-position: bottom;/* la posición de las imágenes de fondo de cada lomo es abajo */
+    background-size:45vh;/*utlizo vh para darle un alto fijo a la imagen y así ésta mantenga su tamaño independientemente del ancho de la pantalla*/
+  }
+
+/* A continuación ocho reglas, una para cada lomo de un libro con su imagen de fondo correspondiente */
+  .lomo:nth-child(2){
+    background-image:url("../img/lomo-01.gif");  
+    border-left:4px solid #fff;/*en este caso al ser el borde del primer libro y no tener ninguno a su izquierda, se le pone el borde de este lado a 4px*/
+  }
+  .lomo:nth-child(3){
+    background-image:url("../img/lomo-02.gif");  
+  }
+  .lomo:nth-child(4){
+    background-image:url("../img/lomo-03.gif");  
+  }
+  .lomo:nth-child(5){
+    background-image:url("../img/lomo-04.gif"); 
+  }
+  .lomo:nth-child(6){
+    background-image:url("../img/lomo-05.gif");  
+  }
+  .lomo:nth-child(7){
+    background-image:url("../img/lomo-06.gif");  
+  }
+  .lomo:nth-child(8){
+    background-image:url("../img/lomo-07.gif");  
+  }
+  .lomo:nth-child(9){
+    background-image:url("../img/lomo-08.gif");  
+    border-right:4px solid #fff;/*al ser el borde del últimor libro y no tener ninguno a su derecha, se le pone el borde de este lado a 4px*/
+  }
+
+  .lomo h3{/* Regla para los h3 de los lomos en horizontal */
+    display: none;/*si no hay ningún libro abierto no se ven los títulos*/
+    white-space: nowrap;/*para que se ponga una palabra al lado de otra*/
+    font-size: 2em;/* tamaño de los títulos */
+    transform: rotate(-90deg);/* se rotan 90deg en sentido contrario a las agujas del reloj */
+    bottom: 30vh;/* Separación con la parte inferior de la ventana */
+  }
+
+  .libro{/* Regla para los divs con la clase libro tengan como máximo la altura de sus divs secciones con la clase lomo (todo el alto de la ventana) y un padding del 10% a ambos lados de manera que los elementos dentro de él queden centrados */
+    max-height: 100%;
+    padding: 0 10%;
+  }
+
+  #inicio .libro{/* Regla para que cuando la sección de inicio esté desplegada haya espacio entre el contenido de ésta y el menú(que tiene una posición fija y está por encima de la librería, de forma que si no se añade espacio en esta sección que es la que está justo debajo de él, el menú taparía el contenido) */
+    margin-left: 5vw;
+  }
+
+  #titulo{/* Regla para colocar el h1 con el título en la seción de inicio (para dejar espacio por encima de él) */
+    padding-top: 6vh;
+  }
+
+  .portada{/* Regla para especificar que el ancho del div con la imagen de portada es el de la imagen que contiene */
+    display: block;
+    width: auto;
+  }
+
+  .portada img{/* Regla para especificar que el alto de la imagen de portada es el de la ventana del navegador, con lo que su ancho lo calcula automáticamente manteniendo las proporciones de dicha imagen */
+    height: 100vh;
+  }
+
+  .desplegado{/* Regla para especificar el ancho de la sección que tenga la clase desplegado */
+    width: 60vw;
+  }
+
+  .lomo.collapsed{/* Regla para los lomos de las secciones que se encuentren cerradas (colapsadas) cuando otra se despliega */
+    background-position: bottom;/* pa fijar en la parte inferior las imágenes de fondo de los lomos */
+    background-size:27vh;  /*para hacer que se vea solo una parte de las imágenes de los lomos cuando están colapsados*/
+  }
+
+  .collapsed h3{/* Regla para hacer visible y colocar el título en el lomo del libro cuando esté colapsado. En este caso se utiliza el ancho para colocarlo */
+    display: inline-block;
+    width: 4.5vw;
+  }
+
+
+  /* A continuación se adaptan los tamaños de letra de los enlaces del menú, el texto dentro de las secciones y los diferentes títulos y el grosor de los bordes para los tamaños de pantalla de los diferentes dispositivos en horizontal (de mayor a menor tamaño) */
+
+  @media screen and (min-width: 1920px){/* Para dispositivos con pantallas muy grandes de 1920px para adelante de ancho (tv de alta resolución) */
+    nav a{
+      font-size: 2em;
+    }
+    .libro{
+      font-size: 1.5em;
+    }
+    .lomo h3{
+      font-size: 3em;
+    }
+    #titulo{
+      font-size: 7.5em;
+    }
+  }
+  @media screen and (max-width: 1919px){/* Dispositivos con pantallas grandes de menos de 1920px de ancho (monitores full hd) */
+    nav a{
+      font-size: 1.5em;
+    }
+    .libro{
+      font-size: 1.2em;
+    }
+    .lomo h3{
+      font-size: 2em;
+    }
+    #titulo{
+      font-size: 7em;
+    }  
+  }
+  @media screen and (max-width: 1440px){/* Con pantallas grandes de hasta 1440px de ancho (portátiles de alta resolución) */
+    nav a{
+      font-size: 1.25em;
+    }
+    .libro{
+      font-size: 1.1em;
+    }
+    .lomo h3{
+      font-size: 1.8em;
+    }
+    #titulo{
+      font-size: 6em;
+    }
+  }
+  @media screen and (max-width: 1280px){/* Con pantallas grandes de hasta 1280px de ancho (portátiles medianos y tablets/iPads(girados)) */
+    nav a{
+      font-size: 1.125em;
+    }
+    .libro{
+      font-size: 1em;
+    }
+    .lomo{
+      border-top:2px solid #fff;
+      border-bottom:2px solid #fff;
+      border-right:1px solid #fff;
+      border-left:1px solid #fff;
+    }
+    .lomo:nth-child(2){
+      border-left:2px solid #fff;
+    }
+    .lomo:nth-child(9){
+      border-right:2px solid #fff;
+    }
+    .lomo h3{
+      font-size: 1.5em;
+    }
+    #titulo{
+      font-size: 5.5em;
+    } 
+  }
+  @media screen and (max-width: 900px){/* Dispositivos medianos de hasta 900px de ancho al girarlos (tablets pequeñas y móviles grandes) */
+    .libro{
+      font-size: 0.9em;
+    }
+    .lomo h3{
+      font-size: 1.3em;
+    }
+    #titulo{
+      font-size: 5em;
+    }
+  }
+  @media screen and (max-width: 680px){/* Dispositivos móviles medianos de hasta 680px de ancho al girarlos */
+    .libro{
+      font-size: 0.8em;
+    }
+    .lomo h3{
+      font-size: 1.25em;
+    }
+  }
+  @media screen and (max-width: 640px){/* Dispositivos móviles pequeños de hasta 640px de ancho al girarlos (ej: iPhone 5, Samsung Galaxu S5 y LG Optimus L70) */
+    nav a{
+      font-size: 1em;
+    }
+    .lomo h3{
+      font-size: 1.125em;
+    }
+  }
+  @media screen and (max-width: 501px){/* Dispositivos móviles pequeños de hasta 501px de ancho al girarlos (iPhone 4) */
+    .lomo h3{
+      font-size: 1em;
+    }
+    #titulo{
+      font-size: 4em;
+    }
+  }
+  @media screen and (max-height: 375px){/* Dispositivos móviles pequeños de hasta 375px de alto girados (iPhone 6/7/8, Samsung Glaxy Note 3 y Blackberry Z30) */
+    nav a{
+      font-size: 1em;
+    }
+    .lomo h3{
+      font-size: 1em;
+    }
+    #titulo{
+      font-size: 4em;
+    }
+  }
+  @media screen and (max-height: 320px){/* Para iPhones 4 y 5, Samsung Glaxy Fold y Nokia Lumnia 520 girados */
+    nav li{
+      margin-right: 20px;
+    }
+    nav a{
+      font-size: 0.8em;
+    }
+    .lomo h3{
+      font-size: 0.9em;
+    }
+    #titulo{
+      font-size: 3em;
+    }
+  }
+}
+
+
+/* MEDIA QUERIES PARA EL DISEÑO VERTICAL */
+
+@media screen and (orientation:portrait){
+  
+  nav{/* Regla para que el menú de navegación se muestre en la parte superior de la ventana */
+    top: 0;
+    width:100%;/* ocupa todo el ancho de la ventana */    
+    height:11vh;/* y tiene una altura de 11vh o lo que es los mismo del 11% de la altura de toda la ventana */
+  }
+
+  nav li{/* Regla para definir el espacio entre los elementos del menú */  
+    margin-right:7%;
+  }
+
+  nav a{/* Regla para definir el tamaño de fuente de los enlaces y su altura de línea */
+    font-size: 0.8em;
+    line-height: 11vh;
+  }
+
+  .libreria{/* Regla para que las secciones dentro de la librería se muestren una debajo de otra en vez de al lado como en el diseño horizontal */
+    flex-direction: column;
+  }
+
+  .lomo{/* Regla para la secciones con la clase lomo en vertical */
+    height: 11.111vh;/* altura cuando la sección está cerrada, simulando el lomo del libro */
+    width: 100%;/* ocupa todo el ancho de su contenedor (la libreria) que es del 100% de la ventana */
+    border-top:1px solid #fff;/* ahora los bordes superiores e inferiors con más finos que los laterales (al contrario que en horizontal) */
+    border-bottom:1px solid #fff;
+    border-right:2px solid #fff;
+    border-left:2px solid #fff;
+    transition-property: height;/* ahora al desplegarse (hacia abajo) la propiedad cuyo valor se modifica es la altura (en horizontal se modifica el ancho) */
+    background-position: left;/* las imágenes de fondo de los lomos se posicionan a la izquierda (en horizontal es abajo) */
+    background-size: 34%;/* y este su tamaño */
+  }
+
+/* A continuación ocho reglas, una para cada lomo de un libro con su imagen de fondo correspondiente (son las mismas que en horizontal pero giradas) */
+  .lomo:nth-child(2){
+    background-image:url("../img/lomo01.gif");  
+  }
+  .lomo:nth-child(3){
+    background-image:url("../img/lomo02.gif");  
+  }
+  .lomo:nth-child(4){
+    background-image:url("../img/lomo03.gif");  
+  }
+  .lomo:nth-child(5){
+    background-image:url("../img/lomo04.gif"); 
+  }
+  .lomo:nth-child(6){
+    background-image:url("../img/lomo05.gif");  
+  }
+  .lomo:nth-child(7){
+    background-image:url("../img/lomo06.gif");  
+  }
+  .lomo:nth-child(8){
+    background-image:url("../img/lomo07.gif");  
+  }
+  .lomo:nth-child(9){
+    background-image:url("../img/lomo08.gif"); 
+    border-bottom:2px solid #fff;/*en este caso al ser el borde del último libro y no tener ninguno por debajo, se aumenta el tamaño del borde inferior*/  
+  }
+  
+  .lomo h3{/* Regla para colocar los títulos dentro de los lomos */
+    line-height: 4vh;/* con la altura de línea se centran */
+    left: 38vw;/* para dejar suficiente espacio a la izquierda de forma que no tapen las imágenes de los lomos */
+    margin-right: 5%;/* para asegurar que siempre quede un poco de aire a la derecha */
+  }
+
+  #titulo{/* Regla para definir el tamaño del título de la página (el h1 dentro de la sección de inicio) */
+    font-size: 2.5em;
+  }
+
+  #nombreAutora{/* Regla para colocar el título de la sección de la autora */
+    margin: 0 auto 2%;
+  }
+
+  .portada{/* Regla para el div que contiene la imagen de portada dentro de cada sección */
+    display:flex;/* se define como un contenedor flexible */
+    align-items: flex-start;/* para que la imagen se coloque donde empieza el div */
+    padding: 0 5%;/*para centrar la imagen dentro del contenedor*/
+  }
+
+  .portada img{/* Regla para la imagen dentro del div con la clase portada */
+    width: 99%;/* se define el tamaño en función de su ancho, que será del 99% del div */ 
+    height: auto;/* la altura se calculará automáticamente en función del ancho */
+  }
+
+  .texto{/* Regla para darle un margen al contenedor con las clase texto dentro del libro */
+    margin:0 10%;
+  }
+
+  .desplegado{/* Regla para la sección que se despliega */
+    height: auto;/* se calcula la altura de la sección de forma automática en función de lo que ocupe su contenido */
+  }
+
+  #inicio.desplegado {/* Regla para controlar el espacio hacia dentro de la sección de inicio cuando está desplegada */
+    padding: 90px 10% 30px 10%;
+  }
+
+
+/* A continuación se adaptan para los tamaños de pantalla (de menor a mayor) de los diferentes dispositivos en vertical (móviles y tablets): las posiciones, espacios y tamaños de letra de los títulos de los lomos, de los títulos de la página principal y de la autora, de los enlaces del menú y del texto dentro de las secciones,. */
+
+  @media screen and (max-width: 240px){/*para el tamaño de pantalla móvil más pequeño que hay en el inspeccionador, el del JioPhone 2 o el Nokia 8110 4G*/
+    .lomo h3{
+      font-size: 0.8em;
+      top:25%;
+    }
+    .lomo:nth-child(5) h3,
+    .lomo:nth-child(7) h3{
+      top:8%;
+    }
+    .libro{
+      font-size: 0.8em;/* el texto dentro del libro empieza con este tamaño e irá aumentando en las media queries de más abajo conforme vaya aumentando el tamaño de pantalla de los dispositivos */
+    }
+    #inicio.desplegado {
+      padding-top: 13vh;
+    }
+    #nombreAutora{
+      margin-top: 5%;
+    }
+  }
+  @media screen and (min-width: 241px){/*para el formato de móvil especial Galaxy Fold de Samsung*/
+    .lomo h3{
+      font-size: 1em;
+      top:25%;
+    }
+    .lomo:nth-child(3) h3,
+    .lomo:nth-child(5) h3,
+    .lomo:nth-child(6) h3,
+    .lomo:nth-child(7) h3{
+      top:8%;
+    }
+    .libro{
+      font-size: 0.9em;
+    }
+  }
+  @media screen and (min-width: 301px){/*para smartphones pequeños como iPhone 4/5*/
+    nav a{
+      font-size: 1em;
+    }
+    .lomo:nth-child(3) h3,
+    .lomo:nth-child(6) h3{
+      top:25%;
+    }
+    #titulo{
+      font-size: 3em;
+    }
+  }
+  @media screen and (min-width: 360px){/*para smartphones medianos como Samsung S5/S9*/
+    .lomo h3{
+      font-size: 1.25em;
+    }
+    .lomo:nth-child(3) h3,
+    .lomo:nth-child(5) h3{
+      top:8%;
+    }
+    .libro{
+      font-size: 1em;
+    }
+    #titulo{
+      font-size: 3.5em;
+    }
+  }
+  @media screen and (min-width: 372px){/*para móviles más grandes como iPhone 6/7/8/X y LG Optimus L70*/
+    .lomo:nth-child(3) h3{
+      top:25%;
+    }
+    #titulo{
+      font-size: 3.75em;
+    }
+  }  
+  @media screen and (min-width: 390px){/*para móviles más grandes como iPhone XR/XS y Pixel 2/2XL*/
+    #titulo{
+      font-size: 4em;
+    }
+  }
+  @media screen and (min-width: 458px){/*para tablets pequeñas*/
+    nav a{
+      font-size: 1.125em;
+    }
+    .lomo:nth-child(5) h3{
+      top:25%;
+    }
+    #titulo{
+      font-size: 5em;
+    }
+  }
+  @media screen and (min-width: 476px){/*para tablets pequeñas como Surface Duo*/
+    .lomo:nth-child(7) h3{
+      top:25%;
+    }
+  }
+  @media screen and (min-width: 560px){/*para tablets pequeñas como Nexus 7*/
+    .lomo h3{
+      font-size: 1.5em;
+    }
+    #inicio.desplegado {
+      padding-top:100px;
+    }
+  }
+  @media screen and (min-width: 680px){/*para tablets medianas como Kindle Fire HDX*/
+    nav a{
+      font-size: 1.25em;
+    }
+    .lomo h3{
+      font-size: 1.75em;
+    }
+    #titulo{
+      font-size: 6em;
+    }
+  }
+  @media screen and (min-height: 654px){/*para dispositivos móviles alargados*/
+    nav{   
+      height:9vh;
+    }
+    nav a{
+      font-size: 1em;
+      line-height: 9vh;
+    }
+    .lomo{/*se aumenta el el grosor de los bordes para pantallas más grandes*/
+      border-top:2px solid #fff;
+      border-bottom:2px solid #fff;
+      border-right:4px solid #fff;
+      border-left:4px solid #fff;
+    }
+    .lomo h3{
+      left: 35vw;
+    }
+    .lomo:nth-child(3) h3,
+    .lomo:nth-child(6) h3{
+      top:25%;
+    }
+  } 
+  @media screen and (min-height: 668px){/*para dispositivos móviles alargados como Nexus 5X/6P*/
+    nav a{
+      font-size: 1.125em;
+    }
+    #nombreAutora{
+      margin-top: 5%;
+    }
+  }
+  @media screen and (min-height: 961px){/*para iPad y tablets como Blackberry PlayBook*/
+    #nombreAutora{
+      margin-top: 0%;
+    }
+  }
+  @media screen and (min-width: 768px){/*para tablets y iPad*/
+    nav a{
+      font-size: 1.5em;
+    }
+    .lomo h3{
+      font-size: 2em;
+    }
+    .lomo:nth-child(3) h3{
+      top:25%;
+    }
+    .libro{
+      font-size: 1.25em;
+    }
+    #inicio.desplegado {
+      padding-top:120px;
+      padding-bottom: 45px;
+    }
+  }
+  @media screen and (min-width: 800px){/*para Nexus 10 y Kindle Fire HDX*/
+    #nombreAutora{
+      margin-top: 5%;
+    }
+  }
+  @media screen and (min-width: 1024px){/*para iPad pro*/
+    nav a{
+      font-size: 1.5em;
+    }
+    .lomo h3{
+      font-size: 2.125em;
+    }
+    .libro{
+      font-size: 1.5em;
+    }
+  } 
+  @media screen and (min-height: 1024px){/*para iPad*/
+    #inicio.desplegado {/* para adaptar el espacio entre el menú y el texto */
+      padding-top:140px;
+    }
+    .portada{/* para encajar la imagen de la portada y que se vea entera y ocupe todo el alto al desplegar cada libro */
+      padding: 0 7%;
+    }
+  }
+  @media screen and (min-height: 1366px){/*para iPad pro*/
+    nav a{
+      font-size: 2em;
+    }
+    .lomo h3{
+      font-size: 2.5em;
+    }
+    .libro{
+      font-size: 1.7em;
+    }
+    #inicio.desplegado {
+      padding-top:180px;
+    }
+    .portada{
+      padding: 0 6%;
+    }
+  }
+}

@@ -56,8 +56,9 @@ $(function(){
 				$(this).addClass("desplegado");
 				$(this).siblings().addClass("collapsed");
 			}else{
-				$(this).toggleClass("desplegado");
+				$(this).toggleClass("collapsed");
 				$(this).siblings().toggleClass("collapsed");
+				desplegarPrimero();
 			}
 
 			if(window.matchMedia("(orientation: portrait)").matches){//si la orientación del dispositivo es portrait (diseño vertical css)

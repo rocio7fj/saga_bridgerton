@@ -528,8 +528,7 @@ nav a:hover{
   
   .lomo h3{
     line-height: 1em;
-    left: 35vw;
-    margin-right: 2%;
+    margin-left: -5vw;
   }
 
   #titulo{
@@ -604,7 +603,7 @@ nav a:hover{
   }
   @media screen and (min-width: 360px){/*para smartphones medianos como Samsung S5/S9*/
     .lomo h3{
-      font-size: 1.25em;
+      font-size: 1.15em;
     }
     .libro{
       font-size: 1em;
@@ -614,6 +613,9 @@ nav a:hover{
     }
   }
   @media screen and (min-width: 372px){/*para móviles más grandes como iPhone 6/7/8/X y LG Optimus L70*/
+    .lomo h3{
+      font-size: 1.25em;
+    }
     #titulo{
       font-size: 3.75em;
     }

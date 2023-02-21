@@ -88,29 +88,39 @@ nav a:hover{
 }
 .lomo:nth-child(2){
   background-color: var(--fondo-libro1);
+  background-image:url("../img/lomo-01.gif");  
+  border-left:4px solid #fff;
 }
 .lomo:nth-child(3){
   background-color: var(--fondo-libro2);
+  background-image:url("../img/lomo-02.gif");
 }
 .lomo:nth-child(4){
   background-color: var(--fondo-libro3);
+  background-image:url("../img/lomo-03.gif");
 }
 .lomo:nth-child(5){
   background-color: var(--fondo-libro4);
+  background-image:url("../img/lomo-04.gif");
 }
 .lomo:nth-child(6){
   background-color: var(--fondo-libro5);
+  background-image:url("../img/lomo-05.gif");
 }
 .lomo:nth-child(7){
   background-color: var(--fondo-libro6);
+  background-image:url("../img/lomo-06.gif");
   color: var(--texto-claro);
 }
 .lomo:nth-child(8){
   background-color: var(--fondo-libro7);
+  background-image:url("../img/lomo-07.gif");
   color: var(--texto-claro);
 }
 .lomo:nth-child(9){
   background-color: var(--fondo-libro8);
+  background-image:url("../img/lomo-08.gif");  
+  border-right:4px solid #fff;
 }
 
 .lomo h1,.lomo h2, .lomo h3{
@@ -277,33 +287,6 @@ nav a:hover{
     transition-property: width;
     background-position: bottom;
     background-size:45vh;
-  }
-
-  .lomo:nth-child(2){
-    background-image:url("../img/lomo-01.gif");  
-    border-left:4px solid #fff;
-  }
-  .lomo:nth-child(3){
-    background-image:url("../img/lomo-02.gif");  
-  }
-  .lomo:nth-child(4){
-    background-image:url("../img/lomo-03.gif");  
-  }
-  .lomo:nth-child(5){
-    background-image:url("../img/lomo-04.gif"); 
-  }
-  .lomo:nth-child(6){
-    background-image:url("../img/lomo-05.gif");  
-  }
-  .lomo:nth-child(7){
-    background-image:url("../img/lomo-06.gif");  
-  }
-  .lomo:nth-child(8){
-    background-image:url("../img/lomo-07.gif");  
-  }
-  .lomo:nth-child(9){
-    background-image:url("../img/lomo-08.gif");  
-    border-right:4px solid #fff;
   }
 
   .lomo h3{
@@ -518,31 +501,9 @@ nav a:hover{
     background-position-y: 15%;
     background-size: 40%;
   }
-
-  .lomo:nth-child(2){
-    background-image:url("../img/lomo01.gif");  
-  }
-  .lomo:nth-child(3){
-    background-image:url("../img/lomo02.gif");  
-  }
-  .lomo:nth-child(4){
-    background-image:url("../img/lomo03.gif");  
-  }
-  .lomo:nth-child(5){
-    background-image:url("../img/lomo04.gif"); 
-  }
-  .lomo:nth-child(6){
-    background-image:url("../img/lomo05.gif");  
-  }
-  .lomo:nth-child(7){
-    background-image:url("../img/lomo06.gif");  
-  }
-  .lomo:nth-child(8){
-    background-image:url("../img/lomo07.gif");  
-  }
-  .lomo:nth-child(9){
-    background-image:url("../img/lomo08.gif"); 
-    border-bottom:2px solid #fff;
+  
+  .lomo:nth-child(9){ 
+    border-bottom:2px solid #fff;  
   }
   
   .lomo h3{

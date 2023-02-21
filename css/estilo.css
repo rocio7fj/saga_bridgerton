@@ -669,7 +669,7 @@ nav a:hover{
       border-left:4px solid #fff;
     }
     .lomo h3{
-      left: 35vw;
+      margin-left: -5vw;
     }
   } 
   @media screen and (min-height: 668px){/*para dispositivos móviles alargados como Nexus 5X/6P*/

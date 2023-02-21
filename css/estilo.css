@@ -591,14 +591,14 @@ nav a:hover{
       margin-left:30vw;
       margin-right:3vw;
     }
-    .lomo:nth-child(5), .lomo:nth-child(5){
+    .lomo:nth-child(5), .lomo:nth-child(7){
       margin-top: -1vw;
     }
   @media screen and (min-width: 301px){/*para smartphones pequeños como iPhone 4/5*/
     nav a{
       font-size: 1em;
     }
-    .lomo:nth-child(5), .lomo:nth-child(5){
+    .lomo:nth-child(5), .lomo:nth-child(7){
       margin-top: 0;
     }
     .libro{

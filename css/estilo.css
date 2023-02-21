@@ -288,6 +288,14 @@ nav a:hover{
     background-position: bottom;
     background-size:45vh;
   }
+  
+  .lomo:nth-child(2){ 
+    border-left:4px solid #fff;
+  }
+  
+  .lomo:nth-child(9){ 
+    border-right:4px solid #fff;
+  }
 
   .lomo h3{
     display: none;
@@ -499,11 +507,25 @@ nav a:hover{
     border-left:2px solid #fff;
     transition-property: height;
     background-position-y: 15%;
+    background-position-x: -5%;
     background-size: 40%;
   }
   
+  .lomo:nth-child(2){ 
+    border-top:4px solid #fff;
+  }
+  
+  .lomo:nth-child(4){
+	  background-position-x: -7%;
+  }
+  
+  .lomo:nth-child(5){
+	  background-position-x: 0%;
+  }
+  
   .lomo:nth-child(9){ 
-    border-bottom:2px solid #fff;  
+    border-bottom:4px solid #fff;
+    background-position-x: -11%;
   }
   
   .lomo h3{

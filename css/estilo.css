@@ -592,14 +592,14 @@ nav a:hover{
       margin-right:3vw;
     }
     .lomo:nth-child(5), .lomo:nth-child(7){
-      margin-top: -1vw;
+      margin-top: 22%;
     }
   @media screen and (min-width: 301px){/*para smartphones pequeños como iPhone 4/5*/
     nav a{
       font-size: 1em;
     }
     .lomo:nth-child(5), .lomo:nth-child(7){
-      margin-top: 0;
+      top: 32%;
     }
     .libro{
       font-size:0.9em;
@@ -660,7 +660,7 @@ nav a:hover{
       font-size: 6em;
     }
   }
-  @media screen and (min-height: 640px){/*para dispositivos móviles alargados*/
+  @media screen and (min-height: 639px){/*para dispositivos móviles alargados*/
     nav{   
       height:63px;
     }
@@ -676,6 +676,9 @@ nav a:hover{
     }
     .lomo h3{
       margin-left: 30vw;
+    }
+    .lomo:nth-child(5), .lomo:nth-child(7){
+      margin-top: 22%;
     }
   } 
   @media screen and (min-height: 668px){/*para dispositivos móviles alargados como Nexus 5X/6P*/

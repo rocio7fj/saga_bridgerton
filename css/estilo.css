@@ -510,7 +510,7 @@ nav a:hover{
   }
   
   .lomo:nth-child(2){ 
-    border-top:2px solid #fff;
+    border-top:4px solid #fff;
   }
   
   .lomo:nth-child(4){
@@ -522,7 +522,7 @@ nav a:hover{
   }
   
   .lomo:nth-child(9){ 
-    border-bottom:2px solid #fff;
+    border-bottom:4px solid #fff;
     background-position-x: -15%;
   }
   

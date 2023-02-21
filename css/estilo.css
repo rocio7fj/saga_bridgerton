@@ -515,8 +515,8 @@ nav a:hover{
     border-right:2px solid #fff;
     border-left:2px solid #fff;
     transition-property: height;
-    background-position: left;
-    background-size: 34%;
+    background-position-y: 15%;
+    background-size: 40%;
   }
 
   .lomo:nth-child(2){
@@ -546,9 +546,9 @@ nav a:hover{
   }
   
   .lomo h3{
-    line-height: 4vh;
-    left: 38vw;
-    margin-right: 5%;
+    line-height: 1em;
+    left: 35vw;
+    margin-right: 2%;
   }
 
   #titulo{
@@ -586,13 +586,13 @@ nav a:hover{
 /* A continuación se adaptan para los tamaños de pantalla (de menor a mayor) de los diferentes dispositivos en vertical (móviles y tablets): las posiciones, espacios y tamaños de letra de los títulos de los lomos, de los títulos de la página principal y de la autora, de los enlaces del menú y del texto dentro de las secciones,. */
 
   @media screen and (max-width: 240px){/*para el tamaño de pantalla móvil más pequeño que hay en el inspeccionador, el del JioPhone 2 o el Nokia 8110 4G*/
+    nav li{
+      margin-right: 4%;
+    }
     .lomo h3{
       font-size: 0.8em;
-      top:25%;
-    }
-    .lomo:nth-child(5) h3,
-    .lomo:nth-child(7) h3{
-      top:8%;
+      line-height: 0.8em;
+      top:29%;
     }
     .libro{
       font-size: 0.8em;
@@ -607,25 +607,15 @@ nav a:hover{
   @media screen and (min-width: 241px){/*para el formato de móvil especial Galaxy Fold de Samsung*/
     .lomo h3{
       font-size: 1em;
-      top:25%;
-    }
-    .lomo:nth-child(3) h3,
-    .lomo:nth-child(5) h3,
-    .lomo:nth-child(6) h3,
-    .lomo:nth-child(7) h3{
-      top:8%;
-    }
-    .libro{
-      font-size: 0.9em;
+      top:32%;
     }
   }
   @media screen and (min-width: 301px){/*para smartphones pequeños como iPhone 4/5*/
     nav a{
       font-size: 1em;
     }
-    .lomo:nth-child(3) h3,
-    .lomo:nth-child(6) h3{
-      top:25%;
+    .libro{
+      font-size:0.9em;
     }
     #titulo{
       font-size: 3em;
@@ -635,10 +625,6 @@ nav a:hover{
     .lomo h3{
       font-size: 1.25em;
     }
-    .lomo:nth-child(3) h3,
-    .lomo:nth-child(5) h3{
-      top:8%;
-    }
     .libro{
       font-size: 1em;
     }
@@ -647,9 +633,6 @@ nav a:hover{
     }
   }
   @media screen and (min-width: 372px){/*para móviles más grandes como iPhone 6/7/8/X y LG Optimus L70*/
-    .lomo:nth-child(3) h3{
-      top:25%;
-    }
     #titulo{
       font-size: 3.75em;
     }
@@ -663,16 +646,8 @@ nav a:hover{
     nav a{
       font-size: 1.125em;
     }
-    .lomo:nth-child(5) h3{
-      top:25%;
-    }
     #titulo{
       font-size: 5em;
-    }
-  }
-  @media screen and (min-width: 476px){/*para tablets pequeñas como Surface Duo*/
-    .lomo:nth-child(7) h3{
-      top:25%;
     }
   }
   @media screen and (min-width: 560px){/*para tablets pequeñas como Nexus 7*/
@@ -696,11 +671,11 @@ nav a:hover{
   }
   @media screen and (min-height: 654px){/*para dispositivos móviles alargados*/
     nav{   
-      height:9vh;
+      height:63px;
     }
     nav a{
       font-size: 1em;
-      line-height: 9vh;
+      line-height: 63px;
     }
     .lomo{/*se aumenta el el grosor de los bordes para pantallas más grandes*/
       border-top:2px solid #fff;
@@ -710,10 +685,6 @@ nav a:hover{
     }
     .lomo h3{
       left: 35vw;
-    }
-    .lomo:nth-child(3) h3,
-    .lomo:nth-child(6) h3{
-      top:25%;
     }
   } 
   @media screen and (min-height: 668px){/*para dispositivos móviles alargados como Nexus 5X/6P*/
@@ -728,16 +699,20 @@ nav a:hover{
     #nombreAutora{
       margin-top: 0%;
     }
+    .lomo h3{
+      top:25%;
   }
   @media screen and (min-width: 768px){/*para tablets y iPad*/
+    nav{
+      height: 7vh;
+    }
     nav a{
       font-size: 1.5em;
+      line-height: 7vh;
     }
     .lomo h3{
       font-size: 2em;
-    }
-    .lomo:nth-child(3) h3{
-      top:25%;
+      line-height: 2em;
     }
     .libro{
       font-size: 1.25em;

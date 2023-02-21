@@ -89,7 +89,6 @@ nav a:hover{
 .lomo:nth-child(2){
   background-color: var(--fondo-libro1);
   background-image:url("../img/lomo-01.gif");  
-  border-left:4px solid #fff;
 }
 .lomo:nth-child(3){
   background-color: var(--fondo-libro2);
@@ -120,7 +119,6 @@ nav a:hover{
 .lomo:nth-child(9){
   background-color: var(--fondo-libro8);
   background-image:url("../img/lomo-08.gif");  
-  border-right:4px solid #fff;
 }
 
 .lomo h1,.lomo h2, .lomo h3{
@@ -507,7 +505,7 @@ nav a:hover{
     border-left:2px solid #fff;
     transition-property: height;
     background-position-y: 15%;
-    background-position-x: -5%;
+    background-position-x: -8%;
     background-size: 40%;
   }
   
@@ -516,7 +514,7 @@ nav a:hover{
   }
   
   .lomo:nth-child(4){
-    background-position-x: -7%;
+    background-position-x: -9%;
   }
   
   .lomo:nth-child(5){
@@ -525,7 +523,7 @@ nav a:hover{
   
   .lomo:nth-child(9){ 
     border-bottom:2px solid #fff;
-    background-position-x: -11%;
+    background-position-x: -15%;
   }
   
   .lomo h3{

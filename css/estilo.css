@@ -654,7 +654,7 @@ nav a:hover{
       font-size: 6em;
     }
   }
-  @media screen and (min-height: 654px){/*para dispositivos móviles alargados*/
+  @media screen and (min-height: 640px){/*para dispositivos móviles alargados*/
     nav{   
       height:63px;
     }

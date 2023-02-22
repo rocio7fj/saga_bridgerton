@@ -709,7 +709,7 @@ nav a:hover{
       font-size: 1.15em;
     }
   }
-  @media screen and (min-height: 732px) and (max-width: 412px){
+  @media screen and (max-height: 732px) and (min-width: 412px){
     .lomo:nth-child(5) h3, .lomo:nth-child(7) h3{
       top: 32%;
       font-size: 1.25em;

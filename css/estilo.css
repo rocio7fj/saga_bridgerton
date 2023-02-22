@@ -677,9 +677,6 @@ nav a:hover{
     .lomo h3{
       margin-left: 27vw;
     }
-    .lomo:nth-child(7) h3{
-      top: 22%;
-    }
   }
   @media only screen and (min-height: 653px) and (max-width: 241px){/*para el formato de móvil especial Galaxy Fold de Samsung*/
     .lomo h3{

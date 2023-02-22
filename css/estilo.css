@@ -711,16 +711,23 @@ nav a:hover{
       margin-left: 30vw;
       font-size: 1.15em;
     }
-  }
-  @media screen and (min-height: 740px){
-    .lomo:nth-child(7) h3{
-      font-size: 1.25em;
+    .lomo:nth-child(5) h3, .lomo:nth-child(7) h3{
       top: 25%;
     }
   }
   @media screen and (max-height: 732px) and (min-width: 412px){
     .lomo:nth-child(5) h3, .lomo:nth-child(7) h3{
       top: 32%;
+    }
+  }
+  @media screen and (min-height: 740px){
+    .lomo:nth-child(7) h3{
+      top: 25%;
+    }
+  }
+  @media screen and (min-height: 896px){/*para iPhone XR*/
+    .lomo h3{
+      font-size: 1.25em;
     }
   }
   @media screen and (min-height: 960px){/*para iPad y tablets como Blackberry PlayBook*/

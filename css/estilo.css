@@ -680,7 +680,27 @@ nav a:hover{
     .lomo:nth-child(7) h3{
       top: 22%;
     }
+  }
+  @media only screen and (min-height: 653px) and (min-width: 241px){/*para el formato de móvil especial Galaxy Fold de Samsung*/
+    .lomo h3{
+      font-size: 1em;
+      top:32%;
+      margin-left:32vw;
+      margin-right:3vw;
+    }
+    .lomo:nth-child(5) h3, .lomo:nth-child(7) h3{
+      top: 25%;
+    }
   } 
+  @media only screen and (min-height: 640px) and (min-width: 360px){/*para smartphones Samsung Galaxy 3 / Note 2/3 */
+    .lomo h3{
+      margin-left: 30vw;
+      font-size: 1.75em;
+    }
+    .lomo:nth-child(7) h3{
+      top: 22%;
+    }
+  }
   @media screen and (min-height: 658px){/*para dispositivos móviles alargados como Nexus 5X/6P*/
     nav a{
       font-size: 1.125em;
@@ -764,25 +784,6 @@ nav a:hover{
     }
     .portada{
       padding: 0 6%;
-    }
-  }
-  @media only screen and (min-height: 640px) and (min-width: 360px){/*para smartphones Samsung Galaxy 3 / Note 2/3 */
-    .lomo h3{
-      margin-left: 30vw;
-    }
-    .lomo:nth-child(7) h3{
-      top: 22%;
-    }
-  }
-  @media only screen and (min-height: 653px) and (min-width: 241px){/*para el formato de móvil especial Galaxy Fold de Samsung*/
-    .lomo h3{
-      font-size: 1em;
-      top:32%;
-      margin-left:32vw;
-      margin-right:3vw;
-    }
-    .lomo:nth-child(5) h3, .lomo:nth-child(7) h3{
-      top: 25%;
     }
   }
 }

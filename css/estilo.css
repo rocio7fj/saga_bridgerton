@@ -598,6 +598,9 @@ nav a:hover{
     nav a{
       font-size: 1em;
     }
+    .lomo h3{
+      margin-right:4vw;
+    }
     .lomo:nth-child(5) h3, .lomo:nth-child(7) h3{
       top: 32%;
     }
@@ -678,7 +681,7 @@ nav a:hover{
       margin-left: 27vw;
     }
   }
-  @media only screen and (min-height: 653px) and (max-width: 241px){/*para el formato de móvil especial Galaxy Fold de Samsung*/
+  @media only screen and (min-height: 653px) and (max-width: 280px){/*para el formato de móvil especial Galaxy Fold de Samsung*/
     .lomo h3{
       font-size: 1em;
       top:32%;
@@ -709,13 +712,18 @@ nav a:hover{
       font-size: 1.15em;
     }
   }
+  @media screen and (min-height: 740px){
+    .lomo:nth-child(7) h3{
+      font-size: 1.25em;
+      top: 25%;
+    }
+  }
   @media screen and (max-height: 732px) and (min-width: 412px){
     .lomo:nth-child(5) h3, .lomo:nth-child(7) h3{
       top: 32%;
-      font-size: 1.25em;
     }
   }
-  @media screen and (min-height: 961px){/*para iPad y tablets como Blackberry PlayBook*/
+  @media screen and (min-height: 960px){/*para iPad y tablets como Blackberry PlayBook*/
     #nombreAutora{
       margin-top: 0%;
     }

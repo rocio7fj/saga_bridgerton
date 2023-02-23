@@ -728,6 +728,8 @@ nav a:hover{
   @media screen and (min-height: 896px){/*para iPhone XR*/
     .lomo h3{
       font-size: 1.25em;
+    }
+    .lomo:nth-child(5) h3, .lomo:nth-child(7) h3{
       top: 32%;
     }
   }

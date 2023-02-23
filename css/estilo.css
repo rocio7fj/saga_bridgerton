@@ -700,7 +700,7 @@ nav a:hover{
       top: 22%;
     }
   }
-  @media screen and (min-height: 658px){/*para dispositivos móviles alargados como Nexus 5X/6P*/
+  @media screen and (min-height: 658px){
     nav a{
       font-size: 1.125em;
     }
@@ -715,7 +715,7 @@ nav a:hover{
       top: 25%;
     }
   }
-  @media screen and (max-height: 732px) and (min-width: 412px){
+  @media screen and (max-height: 732px) and (min-width: 412px){/*para dispositivos móviles alargados como Nexus 5X/6P*/
     .lomo:nth-child(5) h3, .lomo:nth-child(7) h3{
       top: 32%;
     }

@@ -729,6 +729,9 @@ nav a:hover{
     .lomo h3{
       font-size: 1.25em;
     }
+    .lomo:nth-child(5) h3, .lomo:nth-child(7) h3{
+      top: 32%;
+    }
   }
   @media screen and (min-height: 960px){/*para iPad y tablets como Blackberry PlayBook*/
     #nombreAutora{

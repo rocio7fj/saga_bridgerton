@@ -528,8 +528,6 @@ nav a:hover{
   
   .lomo h3{
     line-height: 1em;
-    left: 35vw;
-    margin-right: 2%;
   }
 
   #titulo{
@@ -574,6 +572,7 @@ nav a:hover{
       font-size: 0.8em;
       line-height: 0.8em;
       top:29%;
+      margin-left:26vw;
     }
     .libro{
       font-size: 0.8em;
@@ -589,11 +588,21 @@ nav a:hover{
     .lomo h3{
       font-size: 1em;
       top:32%;
+      margin-left:29vw;
+      margin-right:5vw;
     }
-  }
+    .lomo:nth-child(5) h3, .lomo:nth-child(7) h3{
+      top: 25%;
+    }
   @media screen and (min-width: 301px){/*para smartphones pequeños como iPhone 4/5*/
     nav a{
       font-size: 1em;
+    }
+    .lomo h3{
+      margin-right:4vw;
+    }
+    .lomo:nth-child(5) h3, .lomo:nth-child(7) h3{
+      top: 32%;
     }
     .libro{
       font-size:0.9em;
@@ -604,7 +613,7 @@ nav a:hover{
   }
   @media screen and (min-width: 360px){/*para smartphones medianos como Samsung S5/S9*/
     .lomo h3{
-      font-size: 1.25em;
+      font-size: 1.15em;
     }
     .libro{
       font-size: 1em;
@@ -619,6 +628,9 @@ nav a:hover{
     }
   }  
   @media screen and (min-width: 390px){/*para móviles más grandes como iPhone XR/XS y Pixel 2/2XL*/
+    .lomo h3{
+      font-size: 1.25em;
+    }
     #titulo{
       font-size: 4em;
     }
@@ -650,7 +662,7 @@ nav a:hover{
       font-size: 6em;
     }
   }
-  @media screen and (min-height: 654px){/*para dispositivos móviles alargados*/
+  @media screen and (min-height: 640px){/*para dispositivos móviles alargados*/
     nav{   
       height:63px;
     }
@@ -665,23 +677,74 @@ nav a:hover{
       border-left:4px solid #fff;
     }
     .lomo h3{
-      left: 35vw;
+      margin-left: 27vw;
+    }
+  }
+  @media only screen and (min-height: 653px) and (max-width: 280px){/*para el formato de móvil especial Galaxy Fold de Samsung*/
+    .lomo h3{
+      font-size: 1em;
+      top:32%;
+      margin-left:32vw;
+      margin-right:3vw;
+    }
+    .lomo:nth-child(5) h3, .lomo:nth-child(7) h3{
+      top: 25%;
     }
   } 
-  @media screen and (min-height: 668px){/*para dispositivos móviles alargados como Nexus 5X/6P*/
+  @media only screen and (min-height: 640px) and (max-width: 360px){/*para smartphones Samsung Galaxy 3 / Note 2/3 */
+    .lomo h3{
+      margin-left: 30vw;
+    }
+    .lomo:nth-child(7) h3{
+      top: 22%;
+    }
+  }
+  @media screen and (min-height: 658px){/*para iPhone X / 12 pro, Pixel 2XL / 3 / 3XL y Nokia N9*/
     nav a{
       font-size: 1.125em;
     }
     #nombreAutora{
       margin-top: 5%;
     }
+    .lomo h3{
+      margin-left: 30vw;
+      font-size: 1.15em;
+    }
   }
-  @media screen and (min-height: 961px){/*para iPad y tablets como Blackberry PlayBook*/
+  @media only screen and (min-height: 658px) and (max-width: 320px){/*para smartphones Samsung S9+ */
+    .lomo:nth-child(5) h3, .lomo:nth-child(7) h3{
+      top: 25%;
+    }
+  }
+  @media screen and (max-height: 732px) and (min-width: 412px){/*para dispositivos móviles alargados como Nexus 5X/6P*/
+    .lomo:nth-child(5) h3, .lomo:nth-child(7) h3{
+      top: 32%;
+    }
+  }
+  @media screen and (min-height: 740px) and (max-width: 360px){/*para smartphones Samsung S8 */
+    .lomo:nth-child(7) h3{
+      top: 25%;
+    }
+    .lomo:nth-child(5) h3{
+      top: 32%;
+    }
+  }
+  @media screen and (min-height: 896px){/*para iPhone XR*/
+    .lomo h3{
+      font-size: 1.25em;
+    }
+    .lomo:nth-child(5) h3, .lomo:nth-child(7) h3{
+      top: 32%;
+    }
+  }
+  @media screen and (min-height: 960px){/*para iPad y tablets como Blackberry PlayBook*/
     #nombreAutora{
       margin-top: 0%;
     }
     .lomo h3{
-      top:25%;
+      line-height: 1.5em;
+      font-size: 1.75em;
+    }
   }
   @media screen and (min-width: 768px){/*para tablets y iPad*/
     nav{
@@ -693,7 +756,7 @@ nav a:hover{
     }
     .lomo h3{
       font-size: 2em;
-      line-height: 2em;
+      line-height: 1em;
     }
     .libro{
       font-size: 1.25em;

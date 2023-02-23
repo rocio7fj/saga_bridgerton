@@ -614,7 +614,6 @@ nav a:hover{
   @media screen and (min-width: 360px){/*para smartphones medianos como Samsung S5/S9*/
     .lomo h3{
       font-size: 1.15em;
-      margin-left:-5vw;
     }
     .libro{
       font-size: 1em;
@@ -720,9 +719,12 @@ nav a:hover{
       top: 32%;
     }
   }
-  @media screen and (min-height: 740px){
+  @media screen and (min-height: 740px) and (max-width: 360px){/*para smartphones Samsung S8 */
     .lomo:nth-child(7) h3{
       top: 25%;
+    }
+    .lomo:nth-child(5) h3{
+      top: 32%;
     }
   }
   @media screen and (min-height: 896px){/*para iPhone XR*/

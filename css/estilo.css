@@ -711,7 +711,7 @@ nav a:hover{
       font-size: 1.15em;
     }
   }
-  @media only screen and (min-height: 658px) and (max-width: 320px){/*para smartphones Samsung S9+ */{
+  @media only screen and (min-height: 658px) and (max-width: 320px){/*para smartphones Samsung S9+ */
     .lomo:nth-child(5) h3, .lomo:nth-child(7) h3{
       top: 25%;
     }

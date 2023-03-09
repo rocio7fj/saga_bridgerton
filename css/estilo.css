@@ -421,12 +421,14 @@ nav a:hover{
       font-size: 5em;
     }
   }
+  @media screen and (max-width: 844px){/* Dispositivos móviles medianos de hasta 844px de ancho al girarlos */
+    .lomo h3{
+      font-size: 1.2em;
+    }
+  }
   @media screen and (max-width: 680px){/* Dispositivos móviles medianos de hasta 680px de ancho al girarlos */
     .libro{
       font-size: 0.8em;
-    }
-    .lomo h3{
-      font-size: 1.25em;
     }
   }
   @media screen and (max-width: 640px){/* Dispositivos móviles pequeños de hasta 640px de ancho al girarlos (ej: iPhone 5, Samsung Galaxu S5 y LG Optimus L70) */

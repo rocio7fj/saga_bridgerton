@@ -410,7 +410,7 @@ nav a:hover{
       font-size: 5.5em;
     } 
   }
-  @media screen and (max-width: 915px){/* Dispositivos medianos de hasta 900px de ancho al girarlos (tablets pequeñas y móviles grandes) */
+  @media screen and (max-width: 916px){/* Dispositivos medianos de hasta 916px de ancho al girarlos (tablets pequeñas y móviles grandes) */
     .libro{
       font-size: 0.9em;
     }

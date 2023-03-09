@@ -421,7 +421,7 @@ nav a:hover{
       font-size: 5em;
     }
   }
-  @media screen and (max-width: 844px){/* Dispositivos móviles medianos de hasta 844px de ancho al girarlos */
+  @media screen and (max-width: 851px){/* Dispositivos móviles medianos de hasta 851px de ancho al girarlos */
     .lomo h3{
       font-size: 1.2em;
     }
